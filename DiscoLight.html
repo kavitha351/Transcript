@@ -1,0 +1,483 @@
+<html>
+	<head>
+		<style>
+			body {
+			        background-color: black;
+			}
+
+			.content-state {
+			        display: flex;
+			        color: white;
+			}
+
+			.mycontent {
+			        margin-left: 200px;
+			        margin-top: 0px;
+			}
+
+			.subheading {
+			        width: 150px;
+			        float: left;
+			        background-color: transparent;
+			        padding-top: 0px;
+			        padding: 20px;
+			        margin-top: 0px;
+			        position: fixed;
+			        flex-direction: column;
+			        justify-content: center;
+			        align-items: center;
+					/* font-family:monospace; */
+					font-size: large;
+
+			}
+
+			p{
+				font-family: monospace;
+				font-size: large;
+			}
+
+			h2{
+				font-family: cursive, sans-serif;
+			}
+
+			.subheading a {
+			        display: flex;
+			        justify-content: center;
+			        align-items: center;
+			        margin-top: 0px;
+			        padding: 7px;
+			}
+
+			button {
+			        font-weight: bolder;
+			        background-color: transparent;
+			        box-shadow: inset 0px 0px 3px 0px;
+			        display: inline-block;
+			        vertical-align: middle;
+			        transition: transform 0.2s ease-in-out;
+					border: 2px solid;
+			        border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+			        color: purple;
+					border-image-slice: 1;
+					cursor: pointer;
+					margin-right: 2px;
+					font-family:monospace;
+			}
+
+			button:hover {
+			        transform: scale(1.05);
+					color: black;
+					background-image: linear-gradient(to right, #ff8c00, #ff0080);
+			}
+
+			#tempo {
+			        width: 300px;
+			        /* Set a fixed width for the textarea */
+			        height: 100px;
+			        /* Set a fixed height for the textarea */
+			        word-wrap: break-word;
+			        word-break: break-all;
+			}
+
+			.textarea {
+			        height: 20px;
+			        display: inline-block;
+			        vertical-align: middle;
+			}
+
+			.notification {
+			        position: fixed;
+			        top: 10px;
+			        right: 10px;
+			        background-color: rgba(49, 44, 44, 0.5);
+			        padding: 10px;
+			        border-radius: 5px;
+			        z-index: 9999;
+			}
+
+			a {
+			        text-decoration: none;
+			        color: inherit;
+			        font-weight: bold;
+			        transition: transform 0.2s ease-in-out;
+					font-family: monospace;
+			}
+
+			a:hover {
+			        transform: scale(1.1);
+			}
+		</style>
+		<title>Kabi_Transcript</title>
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+		<script>
+
+			document.addEventListener('DOMContentLoaded', function () {
+			        // Get all h1 elements
+			        var headings = document.querySelectorAll('h2');
+			        var links = document.querySelectorAll('a');
+
+			        //function to generate random color
+
+			        function getRandomColor() {
+			                return '#' + Math.floor(Math.random() * 16777215).toString(16);
+			        }
+
+			        // Apply the random color to the h1 element
+			        headings.forEach(function (heading) {
+
+			                heading.style.color = getRandomColor();
+
+			        });
+
+			        //Apply the random color to the a elements
+
+					setInterval(function () {
+                links.forEach(function (link) {
+                    link.style.color = getRandomColor();
+                });
+            }, 1000);
+			});
+
+
+			function copied(button) {
+					var paragraph = button.parentNode;
+					var textToCopy = '';
+					// Iterate through child nodes of the <p> element
+					for (var i = 0; i < paragraph.childNodes.length; i++) {
+						var child = paragraph.childNodes[i];
+						// Exclude the button element and copy other content
+						if (child !== button) {
+							if (child.nodeName === 'TEXTAREA') {
+								textToCopy += child.value;
+							} else {
+								textToCopy += child.textContent;
+							}
+						}
+					}
+					var tempTextArea = document.createElement('textarea');
+					tempTextArea.value = textToCopy;
+					document.body.appendChild(tempTextArea);
+					tempTextArea.select();
+					document.execCommand('copy');
+					document.body.removeChild(tempTextArea);
+					// Create a notification element
+					var notification = document.createElement('div');
+					notification.className = 'notification';
+					notification.textContent = 'Copied!!!🙂';
+
+					// Generate a random color for the notification text
+					var randomColor = getRandomColor();
+					notification.style.color = randomColor;
+
+
+					// Append the notification to the body
+					document.body.appendChild(notification);
+					// Automatically remove the notification after 3 seconds
+					setTimeout(function () {
+						document.body.removeChild(notification);
+					}, 3000);
+
+					function getRandomColor() {
+						return '#' + Math.floor(Math.random() * 16777215).toString(16);
+					}
+				}
+			</script>
+	</head>
+
+	<body>
+		<div class="content-state">
+			<div class="subheading">
+				<a href="#Greetings">Greetings</a>
+				<a href="#reconnect">Reconnected</a>
+				<a href="#transfer">Live Transfer</a>
+				<a href="#wait">Patience/Research</a>
+				<a href="#sorry">Assurance/Feedback</a>
+				<a href="#end">Closing Lines</a>
+				<a href="#thankyou">Thank you</a>
+				<a href="#dnr">DNR</a>
+				<a href="#replacement">Replacement</a>
+				<a href="#returnrefund">ReturnOnRefund</a>
+				<a href="#refund">Refund</a>
+				<a href="#retrocharge">RetroCharge</a>
+				<a href="#returnwait">ReturnWait1430</a>
+				<a href="#wms">WMS</a>
+				<a href="#returnseller">ReturnToSeller</a>
+				<a href="#outofstock">OutOfStock</a>
+				<a href="#expired">WindowExpired</a>
+				<a href="#repair">Repair</a>
+				<a href="#unknown">Unknown Charge</a>
+				<a href="#decline">Payment Decline</a>
+				<a href="#contactseller">Contact Seller</a>
+				<a href="#AtoZclaim">AtoZClaim</a>
+				<a href="#shorts">Shortcuts</a>
+				<a href="#pricematch">Price Match</a>
+				<a href="#promo">Promo</a>
+			</div>
+			<div class="mycontent">
+				<div id="Greetings">
+					<h2>Greetings/Intro</h2>
+					<p><button onclick="copied(this)">Copy</button>Hello, Welcome to Amazon. How may I help you today?</p>
+					<p><button onclick="copied(this)">Copy</button><textarea class="textarea"></textarea>.Thank you for contacting Amazon. How may I help you today?</p>
+					<p><button onclick="copied(this)">Copy</button>Hello, Welcome to Amazon. I am sorry for the inconvenience. Please allow me 2 minutes to check this for you.</p>
+					<p><button onclick="copied(this)">Copy</button>Could you please elaborate the issue so that I can help you?</p>
+				</div>
+				<div id="reconnect">
+					<h2>Chat Reconnected</h2>
+					<p><button onclick="copied(this)">Copy</button>I apologize for the interrupted connection. I am going to quickly have a look at preceding conversations to this issue. Just a moment please.</p>
+					<p><button onclick="copied(this)">Copy</button>Hello, I apologize for the interruption of the previous chat. If you'll allow me a moment, I'm just going to familiarize myself with your inquiry.</p>
+				</div>
+				<div id="transfer">
+					<h2>Live Trasnfer</h2>
+					<p><button onclick="copied(this)">Copy</button>I'm now going to forward this chat to the appropriate department. Please stay in the chat.</p>
+					<p><button onclick="copied(this)">Copy</button>I will forward you request. Please do not close the chat window. You will be immediately connected to a colleague. Please give my colleague a moment to read the inquiry.Thank you very much.</p>
+					<p><button onclick="copied(this)">Copy</button>Me and my supervisor shares the same resources. If you still want me to transfer this contact to my supervisor, I will definately do that right away. Shall I still transfer?</p>
+				</div>
+				<div id="wait">
+					<h2>Patience/Research</h2>
+					<p><button onclick="copied(this)">Copy</button>I apologize for the inconvenience caused. Please allow me two minutes to check this for you.</p>
+					<p><button onclick="copied(this)">Copy</button>I apologize for the inconvenience caused.</p>
+					<p><button onclick="copied(this)">Copy</button>Please allow me two minutes to check this for you.</p>
+					<p><button onclick="copied(this)">Copy</button>The research takes a little longer, excuse me.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for waiting. I am sorry but the reasearch is taking longer than expected. Please allow me two more minutes.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for waiting</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for your Patience</p>
+				</div>
+				<div id="sorry">
+					<h2>Assurance/Feedback</h2>
+					<p><button onclick="copied(this)">Copy</button> I have forwarded your message to the appropriate department so that they can correct the details of this product. Thank you for providing us with this information.</p>
+					<p><button onclick="copied(this)">Copy</button>I'm sorry for the problems you've encountered. We have forwarded your feedback to our technical department and they are already working to resolve this issue.</p>
+					<p><button onclick="copied(this)">Copy</button>I'm sorry for the problem you've encountered with this shipment. At Amazon we follow the operations of our transport companies very closely and I assure you that I will transfer your feedback to our transport department.</p>
+					<p><button onclick="copied(this)">Copy</button>As an online retailer, we rely heavily on the carrier to deliver our orders to our customers and sometimes, despite all our efforts,there can really be unforeseen incidents that are beyond our control.</p>
+					<p><button onclick="copied(this)">Copy</button>I apologize for the inconvenience related to this order and I hope this incident will remain an exception. We make sure that such issues will not be repeated with your future orders.</p>
+				</div>
+				<div id="end">
+					<h2>Closing Lines</h2>
+					<p><button onclick="copied(this)">Copy</button>Your welcome:)</p>
+					<p><button onclick="copied(this)">Copy</button>Is there anything else that I may assist you with today?</p>
+					<p><button onclick="copied(this)">Copy</button>I will be glad if I could be of any more help for you today. Do you have another further questions for me?</p>
+					<p><button onclick="copied(this)">Copy</button>Your welcome. Thank you for this pleasant chat. Goodbye.</p>
+					<p><button onclick="copied(this)">Copy</button>Wishing you a nice day</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for the nice chat and have a nice evening.</p>
+					<p><button onclick="copied(this)">Copy</button>Unfortunately, we cannot send you the minutes of our conversation by email. However, you can view the history at any time by scrolling up.</p>
+					<p><button onclick="copied(this)">Copy</button>By scrolling up in this chat you can see the complete conversation. This works for both, within the Amazon App and on your desktop computer.</p>
+					<p><button onclick="copied(this)">Copy</button>Your Welcome. Thank you for contacting Amazon. Wishing you a nice day.</p>
+					<p><button onclick="copied(this)">Copy</button>Kindly contact us back if you need any further assistance. Thanks for contacting Amazon. Have a good day.</p>
+					<p><button onclick="copied(this)">Copy</button>We have been idle for 2 minutes and I want to make sure our chat is still connected. If you are not able to respond in 1 minute, this chat will close.</p>
+					<p><button onclick="copied(this)">Copy</button>Since you have not replied us in 2 minutes, considering that your all issues have been resolved and therefore I am ending this chat. For other concerns please feel free to contact us again. Have you good day and stay.</p>
+					<p><button onclick="copied(this)">Copy</button><textarea class="textarea" placeholder="Ordernumber"></textarea></p>
+				</div>
+				<div id="thankyou">
+					<h2>Thank you</h2>
+					<p><button onclick="copied(this)">Copy</button>Anytime, thank you.</p>
+					<p><button onclick="copied(this)">Copy</button>I am happy I was able to help.</p>
+					<p><button onclick="copied(this)">Copy</button>I see you are a member of Amazon Prime. We thank you for your trust</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for the information.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for being a member of Amazon Prime.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for your <textarea class="textarea"></textarea>.</p>
+				</div>
+				<div id="dnr">
+					<h2>DNR</h2>
+					<p><button onclick="copied(this)">Copy</button>I am sorry that you have not received the package even though the tracking shows delivered. May I confirm that have you checked with your neighbors and with family?</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for letting us know regarding this. I have escalated this issue to the concern team and make sure we will look into this and take an action.</p>
+					<p><button onclick="copied(this)">Copy</button>As I see that in the database of our carrier, they have not mentioned the name of the recipient. However they have just updated it as "delivered."</p>
+					<p><button onclick="copied(this)">Copy</button>In order to check with our logistic partners, I have initiated an inquiry with the carrier and expect a result with in 3 workdays.</p>
+					<p><button onclick="copied(this)">Copy</button>If you have not heard from us with in 4 workdays or if the item is not delivered to you, Please contact us again. We will help you with the replacement or refund if replacement not available.</p>
+					<p><button onclick="copied(this)">Copy</button>So, I request you to wait till <textarea class="textarea" placeholder="Date"></textarea>, by this time you will receive item or full refund.</p>
+				</div>
+				<div id="replacement">
+					<h2>Replacement</h2>
+					<p><button onclick="copied(this)">Copy</button>Since the item was shipped from the seller's warehouse in this case, unfortunately we can't offer a replacement delivery.</p>
+					<p><button onclick="copied(this)">Copy</button>I would like to help you with the replacement, I see that the item you ordered is sold by third party sellers and shipped by Amazon. We do not have control over seller's inventory. So replacement is not an option.</p>
+					<p><button onclick="copied(this)">Copy</button>I sincerely apologize but since the item is sold by a Seller, I'm unable to resend the same item for you.</p>
+					<p><button onclick="copied(this)">Copy</button>You can ofcourse return the item for the full refund and place a new order.</p>
+					<p><button onclick="copied(this)">Copy</button>I have created a free of charge replacement order [<textarea class="textarea" placeholder="Ordernumber"></textarea>] to the same shipping address.</p>
+					<p><button onclick="copied(this)">Copy</button>In the replacement confirmation email, just ask you to ignore the label, no further action is required from your side.</p>
+					<p><button onclick="copied(this)">Copy</button>Upon checking I see that I can help you with the following options: 1. Refund 2.Replacement. May I know what would you prefer?</p>
+				</div>
+				<div id="returnrefund">
+					<h2>ReturnOnRefund</h2>
+					<p><button onclick="copied(this)">Copy</button>I am sorry that the item is defective.To make things right you can return the item for full refund.</p>
+					<p><button onclick="copied(this)">Copy</button>I see that you have already taken a <textarea class="textarea" placeholder="discount/replacement"></textarea> on the same product. Once we have issued the <textarea class="textarea" placeholder="discount/replacement"></textarea>, we will not be able to create a replacement for the product. The only option in this case is to return the item for full refund.</p>
+					<p><button onclick="copied(this)">Copy</button>The best you can return the item for the full refund.</p>
+					<p><button onclick="copied(this)">Copy</button>I can help you with the <textarea class="textarea" placeholder="Carriers"></textarea></p>
+					<p><button onclick="copied(this)">Copy</button>You can return the item with DHL or Hermes.</p>
+					<p><button onclick="copied(this)">Copy</button>Would you prefer QR code or Printable label?</p>
+					<p><button onclick="copied(this)">Copy</button>Would you prefer refund to the original payment method or to the Amazon account as a gift card?</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for confirming. I have created the return as requested with <textarea class="textarea" placeholder="Carriers"></textarea>. You will receive the return label via email to the email address registered in your customer account. We will refund you the amount, as soon as the item arrives at our returns center.</p>
+					<p><button onclick="copied(this)">Copy</button>No problem you can return the item in any normal package or box.</p>
+					<p><button onclick="copied(this)">Copy</button>You can also wrap the item in the plastic.</p>
+					<p><button onclick="copied(this)">Copy</button>If the original packing is no longer available then you can return the item in any other safe return.</p>
+					<p><button onclick="copied(this)">Copy</button><textarea class="textarea"></textarea></p>
+				</div>
+				<div id="refund">
+					<h2>Refund</h2>
+					<p><button onclick="copied(this)">Copy</button>Due to the nature of the item, as an exception we would ask you not to return the item to us. Please keep the item or, if no longer usable, dispose of it appropriately.</p>
+					<p><button onclick="copied(this)">Copy</button>As you did not receive the item, I will refund the amount to you. I request you to please place a new order.</p>
+					<p><button onclick="copied(this)">Copy</button>In this case I can help you with the refund. May I know would you prefer refund to original Payment method or to your Amazon account as a Gift certificate?</p>
+					<p><button onclick="copied(this)">Copy</button>May I know would you prefer refund to original Payment method or to your Amazon account as a Gift certificate?</p>
+					<p><button onclick="copied(this)">Copy</button>I have issued the refund to your original payment method. Please allow your bank 5-7 business days to credit the amount in your bank account.</p>
+					<p><button onclick="copied(this)">Copy</button>I have initiated the gift card and it will be added in your account within 24 hours.</p>
+					<p><button onclick="copied(this)">Copy</button>In the refund confirmation email, I just ask you to ignore the return label, no further actions is required from your side.</p>
+					<p><button onclick="copied(this)">Copy</button>As the item is marked as in transit I have issued the refund you will receive an email with an return label. Please ignore the email.</p>
+					<p><button onclick="copied(this)">Copy</button>If the payment card you used on this order is no longer available, but you keep the same bank account that was associated with that card, you bank will automatically enter the refund into that account.</p>
+				</div>
+				<div id="retrocharge">
+					<h2>RetroCharge</h2>
+					<p><button onclick="copied(this)">Copy</button>I am sorry you received an email notification indicating you were required to return the item; you should not have received that email notification.</p>
+					<p><button onclick="copied(this)">Copy</button>I request you to please ignore that email of return as it is system generated.</p>
+					<p><button onclick="copied(this)">Copy</button>In case if you have been charged I request you to please contact us again so that we can help you with the refund.</p>
+					<p><button onclick="copied(this)">Copy</button>I have requested a refund of EUR [<textarea class="textarea" placeholder="amount"></textarea>] to your original payment method. Please allow your bank 5-7 business days to credit the amount in your bank account.</p>
+					<p><button onclick="copied(this)">Copy</button>I have fixed this error, and we won't be charging you again for the item</p>
+					<p><button onclick="copied(this)">Copy</button>I will make sure you won't face any problem with your future orders. Please be rest assured.</p>
+				</div>
+				<div id="returnwait">
+					<h2>ReturnWait1430</h2>
+					<p><button onclick="copied(this)">Copy</button>I see that you have returned the item on [<textarea class="textarea"></textarea>].</p>
+					<p><button onclick="copied(this)">Copy</button>According to details, our Returns Department has not yet posted receipt of your return even though the website says Delivered.</p>
+					<p><button onclick="copied(this)">Copy</button>And I confirm that you have returned the item and it is reached to our fulfillment center, but it is still in process.</p>
+					<p><button onclick="copied(this)">Copy</button>However, usually the item takes 14 days to reach our return department center. I ask your understanding that we have to wait these 14 days from the day you have returned the item. Usually, however, the return will be processed faster.</p>
+					<p><button onclick="copied(this)">Copy</button>I see that only [<textarea class="textarea"></textarea>] days are completed. So, I request you to wait till [<textarea class="textarea"></textarea>], by this time you will receive the full refund.</p>
+					<p><button onclick="copied(this)">Copy</button>I ask your understanding that we have to wait these 14 days from the day you have returned the item.</p>
+					<p><button onclick="copied(this)">Copy</button>The maximum time to process the refund is for the items above 260 Eur is 30 days from the date of return started.</p>
+					<p><button onclick="copied(this)">Copy</button>Of Course, You can return multiple items from different order number in one package. However, please note that depending on which return level you choose, that item will be refunded first. And other items you only put in the package will be checked manually. Refund may be delayed for Up to 14 days for the other items.</p>
+					<p><button onclick="copied(this)">Copy</button>I have forwarded your concern to the returns department that all the items are in a single package</p>
+					<p><button onclick="copied(this)">Copy</button>If the refund is not processed automatically by [<textarea class="textarea"></textarea>] please contact us we will process the refund manually.</p>
+					<p><button onclick="copied(this)">Copy</button>When you return multiple items in one packaging or one return label. The fulfillment center cannot scan the other items automatically. First, they will scan the items which were attached with a label on the outside of the package. The other item will be scanned manually within 14 days by the fulfillment center and process a refund, this is a manual process in the return center.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for waiting. Sometimes there are some technical error in return center and it can happen that the item gets misscanned. Please do not worry I will help you with the refund.</p>
+					<p><button onclick="copied(this)">Copy</button>It may take up to 30 days to process a return including visual inspection and then the refund will be issued. I ask you for your understanding that we have to wait a few more days before we can take further actions.</p>
+				</div>
+				<div id="wms">
+					<h2>WMS</h2>
+					<p><button onclick="copied(this)">Copy</button>I have checked the details for you. Please do not worry, your payment is on hold the payment will be automatically debited from your account within 48 hours once the item entered into the shipping stage. So I request you to wait may be due to some technical issues the payment may declined. If within 48 hours the payment has not debited then we will help you further.</p>
+					<p><button onclick="copied(this)">Copy</button>As soon as the order is placed, amount will be authorized and freeze in the payment card.</p>
+					<p><button onclick="copied(this)">Copy</button>Once the item is shipped, amount will be settled and an email will be sent regarding the shipment confirmation</p>
+					<p><button onclick="copied(this)">Copy</button>I have checked the details for you, It looks like the order was lost in transit.</p>
+					<p><button onclick="copied(this)">Copy</button>I have contacted the fulfillment center and an update regarding the shipping will be send within 72 hours.</p>
+					<p><button onclick="copied(this)">Copy</button>Please do not worry. You will receive the email about the update of the delivery status.</p>
+					<p><button onclick="copied(this)">Copy</button>I will make sure you will receive the delivery as soon as possible. There is not further action required from your end I hope you understand.</p>
+					<p><button onclick="copied(this)">Copy</button>Orders can be dispatched on the night before delivery or on rare occasion the day on delivery as well. I request you to wait until the end of the Estimated Delivery Date, post which we can take actions.</p>
+					<p><button onclick="copied(this)">Copy</button>Sometimes the order may be delayed in transit and be delivered late due to unforeseen reason, I would request you to please wait till[<textarea class="textarea" placeholder="date"></textarea>] for it to be delivered in case of unforeseen delays.</p>
+					<p><button onclick="copied(this)">Copy</button>I have checked the details for you. As the item is not available at your nearest center, we are trying to ship the item from different Amazon center. This is the reason it is getting late.</p>
+					<p><button onclick="copied(this)">Copy</button>If in case it is not delivered by the [<textarea class="textarea" placeholder="edd"></textarea>], Please contact us we will help you further.</p>
+					<p><button onclick="copied(this)">Copy</button>You will receive an email with the tracking ID and order details once the order has been shipped, I can assure you that your order is progressing normally and will be delivered on time as scheduled.</p>
+				</div>
+				<div id="returnseller">
+					<h2>ReturnToSeller</h2>
+					<p><button onclick="copied(this)">Copy</button>I have checked the details for you. I see that the item is lost in transit.</p>
+					<p><button onclick="copied(this)">Copy</button>I have checked the details for you. I see that the item is damaged in trasit, therefore it is returning to the seller.</p>
+				</div>
+				<div id="outofstock">
+					<h2>OutOfStock</h2>
+					<p><button onclick="copied(this)">Copy</button>Due to high demand, sometimes the items go out of stock.</p>
+					<p><button onclick="copied(this)">Copy</button>I have contacted the seller and informed to bring the item back to stock.</p>
+					<p><button onclick="copied(this)">Copy</button>We are working with our sales partner to bring this article back to stock. I encourage you to keep checking back as we may get additional stock. You will be notified once the article is back in stock.</p>
+					<p><button onclick="copied(this)">Copy</button>Our inventory is constantly changing based on information we receive directly from our suppliers and occasionally unexpected fluctuation in supply can result in us being unable to fulfill an order on time. I am sorry because I cannot help you get the product restocked and send it on the desired date.</p>
+					<p><button onclick="copied(this)">Copy</button>We get our products from the outer resouces or from third party sellers and we distribute them as we on priority, as soon as we get it back in stock. However, if it is urgent, we are sorry to disappoint you and request you to buy it locally.</p>
+					<p><button onclick="copied(this)">Copy</button>When an item is listed as "Temporarily out of stock. Order now and we will deliver when available" this indicates that the item ordered is a little more difficult to source from our suppliers, so we cannot predict how long it will take to arrive. After you place your order, we will do everything we can to get the item for you.</p>
+					<p><button onclick="copied(this)">Copy</button>Unfortunately we cannot provide a specific date as to when we expect this item to be in stock but rest assured we are trying our best to obtain more stock to fulfill your order.</p>
+					<p><button onclick="copied(this)">Copy</button>If you find that it takes too long for your order to be fulfilled, you may cancel it at any time before it enters the dispatch process.</p>
+				</div>
+				<div id="expired">
+					<h2>WindowExpired</h2>
+					<p><button onclick="copied(this)">Copy</button>The statutory warranty is two years</p>
+					<p><button onclick="copied(this)">Copy</button>This item from your order was purchased more than 2 years ago. We can no longer provide support to you for this item as the defect liability has expired for this product.</p>
+					<p><button onclick="copied(this)">Copy</button>Unfortunately, we won't able to help you with this issue. All electronic items purchased from Amazon.[<textarea class="textarea" placeholder="ou"></textarea>] come with a 2 years limitation period liability for defects. Because the liability for defective has now expired for this product, we can no longer provide support to you for this item.</p>
+					<p><button onclick="copied(this)">Copy</button>All electronic items purchased from Amazon come with a two year limitation period for liability for defects. Because the liability for defects has now expired for this product, we can no longer provide support to you for this item</p>
+					<p><button onclick="copied(this)">Copy</button>The statutory warranty is two years. The item was purchased more than 2 years ago. We can no longer provide support to you for this item as the defect liability has expired for this product.</p>
+					<p><button onclick="copied(this)">Copy</button>In the event that the manufacturer "[<textarea class="textarea" placeholder="manufacturer"></textarea>]" does offer a warrany period longer than 2 years, it is not possible for us to accept a return of the item and forward it to the manufacturer on your behalf. We therefore insist that you directly contact the manufacturer that has pronounced this extended warranty.</p>
+					<p><button onclick="copied(this)">Copy</button>Since more than 30 days have passed since the delivery date, I can no longer arrange for a replacement or refund for your order.</p>
+					<p><button onclick="copied(this)">Copy</button>Please contact us as soon as possible about problems with your delivery or orders which you have not yet received.</p>
+					<p><button onclick="copied(this)">Copy</button>A replacement delivery or refund is only possible within the 30 days window following the specified delivery date. So in this case we cannot take any actions.</p>
+				</div>
+				<div id="repair">
+					<h2>Repair</h2>
+					<p><button onclick="copied(this)">Copy</button>For this item, we only have repair option. For environmental cause, you need to send it for a repair. Unfortunately, a return is not the option here.</p>
+					<p><button onclick="copied(this)">Copy</button>After 1 year of item, we offer repair as per the system preference. It is not your choice to choose a return on refund. If the item is non repairable, then only they offer a replacement/refund.</p>
+					<p><button onclick="copied(this)">Copy</button>As part of the warranty, we can offer you a free repair of the device. The policy allows the replacement or refund only after repair. If you are not at peace after repair, we will be happy to issue a replacement or refund which the system allow us. Our technicians should first check the item, if it is not repairable, you will receive a replacement or refund, in which case the decision is yours only.</p>
+					<p><button onclick="copied(this)">Copy</button>Within the 2 year warranty period, defective items will be sent to our repair partners for an inspection to determine whether the item can be repaired(or if exchange or replacement is required). The repair process is Amazon's standard procedure. when a repair is offered for an item, the customer is generally not eligible for a replacement(or even a refund). It is our environmentally friendly and resource efficient choice for testing and restoring the functionality of our product as part of the warranty.</p>
+					<p><button onclick="copied(this)">Copy</button><textarea class="textarea" placeholder="type anything"></textarea></p>
+					<p><button onclick="copied(this)">Copy</button><textarea class="textarea" placeholder="type anything"></textarea></p>
+				</div>
+				<div id="unknown">
+					<h2>Unknown Charge</h2>
+					<p><button onclick="copied(this)">Copy</button>To be able to find the details of the transaction, can you please help me with the following details 1.Date of the charge 2.Description of the transaction 3.Charge ID 4.last 4 digits of the card that was charged?</p>
+					<p><button onclick="copied(this)">Copy</button>I see that the amount of EUR [<textarea class="textarea" placeholder="Amount"></textarea>] has been refunded to you on [<textarea class="textarea" placeholder="date"></textarea>].
+					</p>
+					<p><button onclick="copied(this)">Copy</button>Can you help me with the Charge ID?</p>
+					<p><button onclick="copied(this)">Copy</button>The charge ID is a new descriptor, which appears on your bank statements made up of nine alphanumeric characters and is unique to each transaction. (e.g. AIB4TNVYE)</p>
+					<p><button onclick="copied(this)">Copy</button>A charge ID is a 12 digit alphanumeric code which will be unique for every transaction made on your account. You can find it in your bank script.</p>
+					<p><button onclick="copied(this)">Copy</button>I have located the charge of EUR [<textarea class="textarea" placeholder="Amount"></textarea>] which was for the order [<textarea class="textarea" placeholder="Ordernumber"></textarea>].</p>
+					<p><button onclick="copied(this)">Copy</button>As your <textarea class="textarea" placeholder="charge/prime/order"></textarea> is from [Amazon.<textarea class="textarea" placeholder="Ou"></textarea>], I request you to please contact [Amazon.<textarea
+					class="textarea" placeholder="Ou"></textarea>] support regarding the issue as our international teams work independently. I hope you understand.</p>
+					<h3>Authorized</h3>
+					<p><button onclick="copied(this)">Copy</button>I can confirm your article that was cancelled, won't be dispatched and you have not been charged.</p>
+					<p><button onclick="copied(this)">Copy</button>The authorization is released automatically within your bank's individual time frame for unused authorizations.</p>
+					<p><button onclick="copied(this)">Copy</button>While most card issuers release authorization within 3-5 business days, some banks have been known to hold the authorization for upto 7 days</p>
+					<p><button onclick="copied(this)">Copy</button>I request you to please wait for only 5-7 business days amount will be reflect in your account.</p>
+					<p><button onclick="copied(this)">Copy</button>Only the amount has been authorized you will not be charged for this for this rest assured.</p>
+				</div>
+				<div id="decline">
+					<h2>Payment Decline</h2>
+					<p><button onclick="copied(this)">Copy</button>We have no details about why the charge was declined. For further information, please contact your bank.</p>
+					<p><button onclick="copied(this)">Copy</button>Our system performs routine checks of orders in certain cases. As part of this review, your chosen payment method rejected and you were asked to change your payment method to a credit card. Unfortunately. I am unable to reverse this decision manually.</p>
+					<p><button onclick="copied(this)">Copy</button>Unfortunately, I am unable to reverse this decision manually. It all depends on the system. Normally, everything goes smoothly again when you place some orders with gift cards. We therefore ask you to change the payment method for your next order to gift card or credit card.</p>
+					<p><button onclick="copied(this)">Copy</button>Afteryou change the payment method for your next order to gift card. you will be able to pay by direct debit again. Because, we have a temporary restriction on processing direct debit as a payment method due to system errors, and this error happens to many customers and is known to us.</p>
+					<p><button onclick="copied(this)">Copy</button>We are working hard to resolve this error as quickly as possible so that the payment is automatically approved by our system as before.</p>
+					<p><button onclick="copied(this)">Copy</button>If you do not change your payment with in 5 days your orders will be cancelled.</p>
+					<p><button onclick="copied(this)">Copy</button>If rejection occurs after placing an order, Amazon will notify you by email to change the payment method for your order in "Your Order". Once you have updated your order with a valid payment method, your order will continue to be processed automatically.</p>
+					<p><button onclick="copied(this)">Copy</button>I request you to change your payment method or once delete the account details and add again.</p>
+					<p><button onclick="copied(this)">Copy</button>I understand please try any another payment method or once delete the account details and add again.</p>
+					<p><button onclick="copied(this)">Copy</button>The reasons for refusal can be quite different. Sometime there are errors in the transmission of data or the card has already expired.A credit card may have been selected as a payment method that no longer exists or is invalid and has not yet been removed from your customer account.</p>
+					<p><button onclick="copied(this)">Copy</button>For data protection reasons the issuing bank/credit card institution cannot inform us of the reason tor the refusal. I therefore ask you to contact your issuing bank to find out the reasons for the refusal.</p>
+				</div>
+				<div id="contactseller">
+					<h2>Contact Seller</h2>
+					<p><button onclick="copied(this)">Copy</button>To contact your seller, click on "My Account" and then "My Orders". Then click "Contact Seller" on the right side of your order. Please note that it may take up to 2 business days for the seller to respond to your message.</p>
+					<p><button onclick="copied(this)">Copy</button>I have checked the order and I can see it was sold and shipped by a third party seller.</p>
+					<p><button onclick="copied(this)">Copy</button>In this case I will forward your concern to the seller. The seller will reply you with in 2 days.</p>
+					<p><button onclick="copied(this)">Copy</button>Once there is a response from the seller, you can continue communicating by directly replying to the seller.</p>
+					<p><button onclick="copied(this)">Copy</button>If you do not receive a response within two business days or if the seller's response is not satisfactory, please contact us again and we will be happy to help you file an AtoZ Guarantee claim.</p>
+					<p><button onclick="copied(this)">Copy</button>The Amazon A-to-Z Guarantee protects you when you purchase items sold and fulfilled by a third-party seller. Our guarantee covers both the delivery and the condition of the items.</p>
+				</div>
+				<div id="AtoZclaim">
+					<h2>AtoZClaim</h2>
+					<p><button onclick="copied(this)">Copy</button>I have now filed an A-to-z Guarantee claim for you. It may take up to two weeks for the claim to be reviewed. You will be informed by email about the result.</p>
+					<p><button onclick="copied(this)">Copy</button>I filed a claim on your behalf for the following order:<textarea class="textarea"></textarea></p>
+					<p><button onclick="copied(this)">Copy</button>I apologize and understand how annoying it is if a seller does not respond to your messages.</p>
+				</div>
+				<div id="shorts">
+					<h2>Shortcuts</h2>
+					<p><button onclick="copied(this)">Copy</button>May I know issue with the item?</p>
+					<p><button onclick="copied(this)">Copy</button>May I know when did you return the item?</p>
+					<p><button onclick="copied(this)">Copy</button>Could you please help me with the last four digits of your credit card and its expiry date?</p>
+					<p><button onclick="copied(this)">Copy</button>May I know reason for returning the item?</p>
+					<p><button onclick="copied(this)">Copy</button>Is this the item you are referring to ?</p>
+					<p><button onclick="copied(this)">Copy</button>May I know what would you prefer?</p>
+					<p><button onclick="copied(this)">Copy</button>Can you please help me with the order number?</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for the details.</p>
+					<p><button onclick="copied(this)">Copy</button>Thank you for your understanding.</p>
+					<p><button onclick="copied(this)">Copy</button>I hope I was able to answer all your questions.</p>
+					<p><button onclick="copied(this)">Copy</button>I understand your concern.</p>
+					<p><button onclick="copied(this)">Copy</button>I hope you agree with the solution.</p>
+					<p><button onclick="copied(this)">Copy</button>Let me check this for you.</p>
+					<p><button onclick="copied(this)">Copy</button> Please allow me a minute</p>
+				</div>
+				<div id="pricematch">
+					<h2>Price Match</h2>
+					<p><button onclick="copied(this)">Copy</button>I can understand your concern. Our Prices may increase or decrease based on number of factors and unfortunately, we cannot offer you a refund for the difference between the price in your order and the lower price you saw on our website.</p>
+					<p><button onclick="copied(this)">Copy</button>I hope you understand that I am unable to help you with this , as we do not offer post purchase price adjustments.</p>
+				</div>
+				<div id="promo">
+					<h2>Promo</h2>
+					<p><button onclick="copied(this)">Copy</button>Unfortunately the promotional voucher amount is non-refundable, you can use it only onetime.</p>
+					<p><button onclick="copied(this)">Copy</button>As an apology, I have added EUR 5 voucher in your Amazon account.</p>
+					<p><button onclick="copied(this)">Copy</button>I can grant you a small concession and help you with promotional credits of EUR 5. I understand this promotional credit does not compensate for the inconvenience, please accept this as goodwill gesture and apology</p>
+					<p><button onclick="copied(this)">Copy</button>when you place an item sold and shipped by Amazon, you will be able to see the value of your promotional credit has been deducted from the total cost at the checkout page.</p>
+					<p><button onclick="copied(this)">Copy</button>Promo will not be shown up on your accout but will get applied automatically at the checkout page directly for the items that are sold and shipped by Amazon.</p>
+					<p><button onclick="copied(this)">Copy</button>The promotional reward cannot be used on the items sold by Amazon sellers other than this website.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
