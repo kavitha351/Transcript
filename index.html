@@ -19,11 +19,11 @@
     --overall-style: monospace;
 }
 :root.active-root {
-            --bg-color: #e5e5e5;
-            --text-color: #000000;
-            --btn-border: #14213d;
-            --btn-fill: #fca311;
-            --h2-color: rgb(252, 43, 147);
+    --bg-color: #2e3b4e;
+    --text-color: #dfe6e9;
+    --btn-border: black;
+    --btn-fill: #0984e3;
+    --h2-color: #00cec9;
 }
 *{
     margin: 0;
@@ -52,6 +52,7 @@ body{
     flex-direction: column;
     padding-bottom: 1.5rem;
 }
+/* It content */
 .list #itPolicy{
     color: white;
     cursor: pointer;
@@ -63,14 +64,83 @@ body{
     background: rgba(255, 192, 203, 0.434);
     transition: right 0.3s ease;
     right: -500px;
+    display: flex;
+    justify-content: first baseline;
+    align-items: center;
+    border-left: 1px solid white;
+    flex-direction: column;
 }
 #itGlass h3{
+    position: absolute;
     text-align: center;
-    margin: 5px;
+    top: 20px;
     font-weight: bold;
     font-size: xx-large;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px black;
+    /* -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px black; */
+}
+#itGlass .itGlassBtn {
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:start;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+#itGlass .Rap{
+    background-color: transparent;
+    border: 1px solid rgba(237, 11, 87, 0.806);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 10px;
+    backdrop-filter: blur(2px);
+}
+.Rap #input_yes, #input_no, #input_repeat, #input_result{
+    height: 20px;
+    width: 60px;
+    border: 1px solid black;
+    font-style: none;
+}
+.Rap label{
+    font-size: 15px;
+    font-weight: bold;
+}
+.Rap button{
+    border: none;
+    padding: 2px 15px;
+    border-radius: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    border: 1px solid black;
+}
+.Rap .rap_input{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+#itGlass .it-btn {
+    position: relative;
+    color: black;
+    height: 25px;
+    width: fit-content;
+    border-radius: 3px;
+    border: none;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(237, 11, 87, 0.806);
+    cursor: pointer;
+    margin: 2px;
+    padding: 5px 10px; 
+    box-sizing: border-box;
+}
+
+#itGlass .it-btn:hover{
+    backdrop-filter: blur(0px);
 }
 .content{
     flex: 1;
@@ -231,6 +301,11 @@ select option{
                 });
             }, 1000);
 		});
+
+        //it function
+        function ItFunction(url){
+            window.open(url, '_blank');
+        }
     </script>
 </head>
 <body>
@@ -271,7 +346,28 @@ select option{
                 <a href="#wrapup">WrapUp</a>
                 <div id="itPolicy">IT</div>
     </div>
-    <div id="itGlass" class="box"><h3>It Policy Store</h3></div>
+    <div id="itGlass">
+        <h3>It Policy Store</h3>
+        <div class="itGlassBtn">
+        <button class="it-btn" onclick="ItFunction('https://www.bing.com/chat?q=Microsoft+Copilot&FORM=hpcodx')">ClickBingAI</button>
+        <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
+        <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Click</button>
+    </div>
+    <div class="Rap">
+        <h1>Rap Calculator</h1>
+        <div class="rap_input">
+        <label>Yes:</label>
+        <p id="input_yes" contenteditable="true"></p>
+        <label>No:</label>
+        <p id="input_no" contenteditable="true"></p>
+        <label>Repeat:</label>
+        <p id="input_repeat" contenteditable="true"></p>
+    </div>
+    <label>Result:</label>
+        <p id="input_result" style="width: 100%;"></p>
+        <button id="input_Cal">Calculate</button>
+    </div>
+    </div>
     <div class="box content">
         <div id="Greetings">
         <h2>Greetings/Intro</h2>
@@ -649,31 +745,37 @@ select option{
         <p><button onclick="copied(this)">Copy</button>The promotional reward cannot be used on the items sold by Amazon sellers other than this website.</p>
     </div>
     <div id="annotation">
-        <h2>Annotation</h2>
-        <p><button onclick="copied(this)">Copy</button>#AC3Prompttool
+<h2>Annotation</h2>
+<p><button onclick="copied(this)">Copy</button>
+#AC3Prompttool
 #Rosetta
 OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
 ActionsTaken: <textarea class="textarea"></textarea>
 Request to dart: <textarea class="textarea"></textarea>.</p>
-        <p><button onclick="copied(this)">Copy</button>#AC3Prompttool
+<p><button onclick="copied(this)">Copy</button>
+#AC3Prompttool
 #RosettaPark
 OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
+Actions Taken: <textarea class="textarea"></textarea>
 Reason to park: <textarea class="textarea" placeholder="cx is away and idle"></textarea>.</p>
-     <p><button onclick="copied(this)">Copy</button>#AC3Prompttool
+<p><button onclick="copied(this)">Copy</button>
+#AC3Prompttool
 #RosettaTransfer
 OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
 Reason for transfer:for better assistance and <textarea class="textarea"></textarea>.</p>
-<p><button onclick="copied(this)">Copy</button>#Rosetta
+<p><button onclick="copied(this)">Copy</button>
+#Rosetta
 #Account on hold
 OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
 knowledge center:na
 Actions Taken:Transfer to buyer risk investigation.
 Solution for customer:Information given. Requested cx to wait for 2 work days.</p>
-<p><button onclick="copied(this)">Copy</button>#Rosetta
+<p><button onclick="copied(this)">Copy</button>
+#Rosetta
 #CAP Customer
 OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
@@ -689,7 +791,6 @@ Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
         <p><button onclick="copied(this)">Copy</button>Order id: <textarea class="textarea"></textarea>
         Issue and resolution: <textarea class="textarea"></textarea></p>
     </div>
-    <iframe src="/media/archive/CmpsdFile.zip/flappyjs/flappy.html" height ="500px"width="100%"></iframe>
     </div>
     <div class="box aaps">
         <i class='bx bxl-kickstarter bx-sm'></i>
@@ -722,13 +823,27 @@ Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
     var itPolicy = document.getElementById('itPolicy');
     var itGlass = document.getElementById('itGlass');
      itPolicy.addEventListener('click',function(){
-        if(itGlass.style.right === '-500px'){
+        if(itGlass.style.right === '-500px'||itGlass.style.right === ''){
             itGlass.style.right = '0';
         }
         else{
             itGlass.style.right = '-500px' 
         }
      });
+     //Rap Calculator
+     document.getElementById('input_Cal').addEventListener('click', function() {
+            // Get values from the paragraphs
+            let yesValue = parseFloat(document.getElementById('input_yes').innerText);
+            let noValue = parseFloat(document.getElementById('input_no').innerText);
+            let repeatValue = parseFloat(document.getElementById('input_repeat').innerText);
+
+            // Perform the calculations (you can replace this with your own logic)
+            let result = (yesValue-repeatValue)/(yesValue+noValue)*100 ;
+
+
+            // Display the result
+            document.getElementById('input_result').innerText =+ result;
+        });
     </script>
 </body>
 </html>
