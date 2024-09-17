@@ -15,15 +15,19 @@
     --btn-border: #111; 
     --btn-fill: #e88; 
     --h2-color: rgb(157, 222, 5);
+    --Glass:rgba(255, 192, 203, 0.434);
     --heading-style: "Dancing Script", cursive;
     --overall-style: monospace;
+    --side-plaines: #111;
 }
 :root.active-root {
-    --bg-color: #2e3b4e;
-    --text-color: #dfe6e9;
-    --btn-border: black;
-    --btn-fill: #0984e3;
-    --h2-color: #00cec9;
+    --bg-color: #9ebbe7;
+    --text-color: #000;
+    --btn-border: #111;
+    --btn-fill: #3c8b40;
+    --h2-color: #021515;
+    --Glass:rgba(0, 92, 128, 0.511);
+    --side-plaines: rgb(62, 40, 59);
 }
 *{
     margin: 0;
@@ -43,7 +47,7 @@ body{
     overflow-x: hidden;
 }
 .list{
-    background: var(--btn-border);
+    background: var(--side-plaines);
     width: 11em;
     height: 100vh;
     display: flex;
@@ -61,23 +65,19 @@ body{
     position:fixed;
     height: 100vh;
     width: 500px;
-    background: rgba(255, 192, 203, 0.434);
+    background: var(--Glass);
     transition: right 0.3s ease;
     right: -500px;
-    display: flex;
-    justify-content: first baseline;
-    align-items: center;
     border-left: 1px solid white;
     flex-direction: column;
 }
 #itGlass h3{
     position: absolute;
-    text-align: center;
     top: 20px;
+    left: 5px;
     font-weight: bold;
     font-size: xx-large;
-    /* -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px black; */
+    font-family: var(--heading-style);
 }
 #itGlass .itGlassBtn {
     width: 100%;
@@ -87,56 +87,18 @@ body{
     flex-wrap: wrap;
     margin-top: 70px;
 }
-#itGlass .Rap{
-    background-color: transparent;
-    border: 1px solid rgba(237, 11, 87, 0.806);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
-    margin-top: 10px;
-    backdrop-filter: blur(2px);
-}
-.Rap #input_yes, #input_no, #input_repeat, #input_result{
-    height: 20px;
-    width: 60px;
-    border: 1px solid black;
-    font-style: none;
-}
-.Rap label{
-    font-size: 15px;
-    font-weight: bold;
-}
-.Rap button{
-    border: none;
-    padding: 2px 15px;
-    border-radius: 2px;
-    font-family: 'Courier New', Courier, monospace;
-    background: transparent;
-    border: 1px solid black;
-}
-.Rap .rap_input{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-}
 #itGlass .it-btn {
     position: relative;
     color: black;
     height: 25px;
     width: fit-content;
     border-radius: 3px;
-    border: none;
     background: transparent;
     backdrop-filter: blur(2px);
     border: 1px solid rgba(237, 11, 87, 0.806);
     cursor: pointer;
     margin: 2px;
     padding: 5px 10px; 
-    box-sizing: border-box;
 }
 
 #itGlass .it-btn:hover{
@@ -151,7 +113,7 @@ body{
 }
 .aaps{
     width: 5em;
-    background: var(--btn-border);
+    background: var(--side-plaines);
     color: var(--btn-fill);
     display: flex;
     justify-content: space-evenly;
@@ -181,9 +143,10 @@ h2{
     color: var(--h2-color);
 }
 p{
-	font-family: monospace;
-	font-size: large;
+	font-family:'Courier New', Courier, monospace;
+	font-size: 14px;
     margin: 10px 0;
+    font-weight: 500;
 }
 /* Content Buttons */
 .content button{
@@ -207,7 +170,7 @@ p{
 input,textarea,select{
 	outline: none;
 	background: transparent;
-	color: var(--text-color);
+	color: powderblue;
 	border: 1px solid var(--btn-border);
     font-weight: bold;
     display: inline-block;
@@ -352,20 +315,6 @@ select option{
         <button class="it-btn" onclick="ItFunction('https://www.bing.com/chat?q=Microsoft+Copilot&FORM=hpcodx')">ClickBingAI</button>
         <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
         <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Click</button>
-    </div>
-    <div class="Rap">
-        <h1>Rap Calculator</h1>
-        <div class="rap_input">
-        <label>Yes:</label>
-        <p id="input_yes" contenteditable="true"></p>
-        <label>No:</label>
-        <p id="input_no" contenteditable="true"></p>
-        <label>Repeat:</label>
-        <p id="input_repeat" contenteditable="true"></p>
-    </div>
-    <label>Result:</label>
-        <p id="input_result" style="width: 100%;"></p>
-        <button id="input_Cal">Calculate</button>
     </div>
     </div>
     <div class="box content">
@@ -743,6 +692,7 @@ select option{
         <p><button onclick="copied(this)">Copy</button>when you place an item sold and shipped by Amazon, you will be able to see the value of your promotional credit has been deducted from the total cost at the checkout page.</p>
         <p><button onclick="copied(this)">Copy</button>Promo will not be shown up on your account but will get applied automatically at the checkout page directly for the items that are sold and shipped by Amazon.</p>
         <p><button onclick="copied(this)">Copy</button>The promotional reward cannot be used on the items sold by Amazon sellers other than this website.</p>
+        <p><button onclick="copied(this)">Copy</button>As an apology I will extend your Amazon Prime Membership for one month.</p>
     </div>
     <div id="annotation">
 <h2>Annotation</h2>
@@ -781,6 +731,8 @@ OrderNumber: <textarea class="textarea"></textarea>
 Customerconcern:<textarea class="textarea"></textarea>
 knowledge center:na
 Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
+<p style="color: #0984e3;"><button onclick="copied(this)">Copy</button><textarea class="textarea"></textarea>. Can you please help me with the apology lines as Customer service assciate.</p>
+<p style="color: #0984e3;"><button onclick="copied(this)">Copy</button><textarea class="textarea"></textarea>. How can I response to this customer?</p>
     </div>
     <div id="wrapup">
         <h2>WrapUp</h2>
@@ -831,6 +783,7 @@ Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
         }
      });
      //Rap Calculator
+     let BG = document.getElementById('input_Cal');
      document.getElementById('input_Cal').addEventListener('click', function() {
             // Get values from the paragraphs
             let yesValue = parseFloat(document.getElementById('input_yes').innerText);
@@ -840,10 +793,16 @@ Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
             // Perform the calculations (you can replace this with your own logic)
             let result = (yesValue-repeatValue)/(yesValue+noValue)*100 ;
 
-
             // Display the result
             document.getElementById('input_result').innerText =+ result;
         });
+        function changeBackgroundColor() {
+            BG.style.backgroundColor = 'rgba(44, 33, 35, 0.434)';
+        }
+
+        function revertBackgroundColor() {
+            BG.style.backgroundColor = 'transparent';
+        }
     </script>
 </body>
 </html>
