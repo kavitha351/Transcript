@@ -39,7 +39,10 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: var(--text-color);
+    /* background: pink; */
+    background-image: url(https://img.freepik.com/premium-photo/colorful-flower-wallpaper-with-black-background-neon-flower-wallpaper_906809-292.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .box{
     height: 100vh;
@@ -47,7 +50,8 @@ body{
     overflow-x: hidden;
 }
 .list{
-    background: var(--side-plaines);
+    /* background: var(--side-plaines); */
+    background: transparent;
     width: 11em;
     height: 100vh;
     display: flex;
@@ -55,6 +59,7 @@ body{
     align-items: center;
     flex-direction: column;
     padding-bottom: 1.5rem;
+    backdrop-filter: invert(10%);
 }
 /* It content */
 .list #itPolicy{
@@ -108,17 +113,19 @@ body{
     flex: 1;
     padding: 5px;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
-    background: var(--bg-color);
+    /* background: var(--bg-color); */
     color: var(--text-color);
+    backdrop-filter: blur(4px);
 }
 .aaps{
     width: 5em;
-    background: var(--side-plaines);
+    /* background: var(--side-plaines); */
     color: var(--btn-fill);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    backdrop-filter: sepia(10%);
 }
 .list::-webkit-scrollbar,
 .content::-webkit-scrollbar,
