@@ -20,6 +20,7 @@
     --heading-style: "Dancing Script", cursive;
     --overall-style: monospace;
     --side-plaines: #111;
+    --inputs:powderblue;
     --body-bg:url(https://img.freepik.com/premium-photo/colorful-flower-wallpaper-with-black-background-neon-flower-wallpaper_906809-292.jpg);
 }
 :root.active-root {
@@ -31,6 +32,7 @@
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
     --body-bg:url(https://img.freepik.com/premium-photo/abstract-background-images-wallpaper-ai-generated_643360-14155.jpg);
+    --inputs:rgb(79, 1, 74);
 }
 *{
     margin: 0;
@@ -52,7 +54,6 @@ body{
     overflow-x: hidden;
 }
 .list{
-    /* background: var(--side-plaines); */
     background: transparent;
     width: 11em;
     height: 100vh;
@@ -61,7 +62,8 @@ body{
     align-items: center;
     flex-direction: column;
     padding-bottom: 1.5rem;
-    backdrop-filter: invert(10%);
+    /* backdrop-filter: invert(10%); */
+    backdrop-filter:blur(2px);
 }
 /* It content */
 .list #itPolicy{
@@ -161,27 +163,25 @@ p{
 /* Content Buttons */
 .content button{
     font-weight: bolder;
-	/* box-shadow: inset 0px 0px 3px 0px; */
+	box-shadow: inset 0px 0px 3px 1px var(--btn-fill);
 	transition: transform 0.2s ease-in-out;
 	border: 1px groove var(--btn-fill);
-	/* color: var(--btn-border); */
     color: var(--text-color);
 	cursor: pointer;
 	margin-right: 2px;
     padding: 1px 5px;
-    border-radius: 3px;
+    border-radius: 2px;
     background: transparent;
 }
 .content button:hover {
 	transform: scale(1.05);
     background: var(--btn-fill);
-    border-radius: 3px;
     color: black;
 }
 input,textarea,select{
 	outline: none;
 	background: transparent;
-	color: powderblue;
+	color: var(--inputs);
 	border: 1px solid var(--btn-border);
     font-weight: bold;
     display: inline-block;
