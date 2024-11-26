@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kukavitx</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/kkfav.ico">
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="/kkfav.ico"> -->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<!-- <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml"> 🔗 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml"> 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jacquarda+Bastarda+9+Charted&display=swap');
 :root{
     --bg-color: #000000; 
     --text-color:rgb(185, 185, 185);
@@ -33,7 +31,7 @@ url(https://img.freepik.com/premium-photo/abstract-background-images-wallpaper-a
     --h2-color: #021515;
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
-    --body-bg:linear-gradient(45deg, white, pink 80%);
+    --body-bg:linear-gradient(45deg, purple 20%, pink 70%, aqua);
     --inputs:rgb(79, 1, 74);
 }
 *{
@@ -144,6 +142,8 @@ body{
 	transition: transform 0.2s ease-in-out;
     margin: 7px 4px;
     font-size: 0.8rem;
+    font-family: var(--heading-style);
+    /* rampal */
 }
 .list a:hover{
 	transform: scale(1.1);
@@ -159,12 +159,10 @@ h2{
     height: 40px;
     text-align: center;
     border: 1px solid var(--btn-border);
-    border-radius: 0px 8px 5px 0px;
+    border-radius: 0px 25px 0px 25px;
     box-shadow: 2px 0px 6px 0px var(--btn-fill) inset;
-    padding: 4px 0px;
 }
 p{
-	font-family:'Courier New', Courier, monospace;
 	font-size: 14px;
     margin: 10px 0;
     font-weight: 500;
