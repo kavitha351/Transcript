@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kukavitx</title>
-<!-- <link rel="icon" type="image/png" sizes="32x32" href="/kkfav.ico"> -->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml"> 
 <style>
@@ -29,7 +28,7 @@
     --h2-color: #021515;
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
-    --body-bg:linear-gradient(45deg, purple 20%, pink 70%, aqua);
+    --body-bg: linear-gradient(120deg, #000,purple );
     --inputs:rgb(79, 1, 74);
 }
 *{
@@ -110,8 +109,6 @@ body{
 }
 .content{
     flex: 1;
-    padding: 0px 5px;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
     color: var(--text-color);
 }
 .aaps{
@@ -147,13 +144,10 @@ h2{
     color: var(--h2-color);
     position: sticky;
     top: 0;
-    background: var(--bg-color);
+    background: transparent;
     backdrop-filter: blur(5px);
     height: 40px;
     border: 1px solid var(--btn-border);
-    border-radius: 0px 25px 0px 25px;
-    box-shadow: 2px 0px 6px 0px var(--btn-fill) inset;
-    
 }
 p{
 	font-size: 15px;
@@ -162,7 +156,6 @@ p{
 }
 /* Content Buttons */
 .content button{
-    font-weight: bolder;
 	box-shadow: inset 0px 0px 3px 1px var(--btn-fill);
 	transition: transform 0.2s ease-in-out;
 	border: 1px groove var(--btn-fill);
@@ -170,7 +163,6 @@ p{
 	cursor: pointer;
 	margin-right: 2px;
     padding: 4px;
-    border-radius: 2px;
     background: transparent;
     border-radius: 0px 5px 0px 10px;
 }
@@ -187,7 +179,6 @@ input,textarea,select{
 	background: transparent;
 	color: var(--inputs);
 	border: 1px solid var(--btn-border);
-    /* font-weight: bold; */
     display: inline-block;
     vertical-align: middle;
     height: 22px; 
@@ -196,7 +187,6 @@ input,textarea,select{
 select option{
     background-color: var(--btn-fill);
     color: var(--btn-border);
-    /* font-weight: bold; */
 }
  /* to set the notification style when the buttons are clicked */
 .notification {
@@ -213,6 +203,7 @@ select option{
 }
     </style>
     <script>
+        let count = 0;
         // to copy the lines
         function copied(button) {
 					var paragraph = button.parentNode;
@@ -259,9 +250,14 @@ select option{
 						document.body.removeChild(notification);
 					}, 3000);
 
+                    //Generating random colors
 					function getRandomColor() {
 						return '#' + Math.floor(Math.random() * 16777215).toString(16);
 					}
+                    
+                    //change document title accordingly
+                    count++;
+                    document.title = `kukavitx-[${count}]`;
 		}
         //random colors 
         document.addEventListener('DOMContentLoaded', function () {
@@ -381,7 +377,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the inconvenience caused.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please allow me two minutes to check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The research takes a little longer, excuse me.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for waiting. I am sorry but the reasearch is taking longer than expected. Please allow me two more minutes.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for waiting. I am sorry but the research is taking longer than expected. Please allow me two more minutes.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for <select><option value="waiting">waiting</option><option value="your time">your time</option><option value="your understanding">your understanding</option><option value="the details">the details</option><option value="confirming">confirming</option></select></p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for your Patience</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you so much:)</p>
@@ -440,8 +436,11 @@ select option{
     </div>
     <div id="returnrefund">
         <h2>ReturnOnRefund</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry that the item is <select><option value="defective">defective</option><option value="damaged">damaged</option></select>.To make things right you can return the item for full refund.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that you have already taken a <textarea class="textarea" placeholder="discount/replacement"></textarea> on the same product. Once we have issued the <textarea class="textarea" placeholder="discount/replacement"></textarea>, we will not be able to create a replacement for the product. The only option in this case is to return the item for full refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that the item is <select><option value="defective">defective</option><option value="damaged">damaged</option></select>.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that the item no longer works.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that as a part of warranty, you can return the item for the full refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>To make things right you can return the item for the full refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that you have already taken a <select><option value="discount">discount</option><option value="replacement">replacement</option></select> on the same product. Once we have issued the <select><option value="discount">discount</option><option value="replacement">replacement</option></select>, we will not be able to create a replacement for the product. The only option in this case is to return the item for full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The best you can return the item for the full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I will help you with the return label.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option></select>.</p>
@@ -573,7 +572,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately, we won't able to help you with this issue. All electronic items purchased from Amazon.[<textarea class="textarea" placeholder="ou"></textarea>] come with a 2 years limitation period liability for defects. Because the liability for defective has now expired for this product, we can no longer provide support to you for this item.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>All electronic items purchased from Amazon come with a two year limitation period for liability for defects. Because the liability for defects has now expired for this product, we can no longer provide support to you for this item</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The statutory warranty is two years. The item was purchased more than 2 years ago. We can no longer provide support to you for this item as the defect liability has expired for this product.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In the event that the manufacturer "[<textarea class="textarea" placeholder="manufacturer"></textarea>]" does offer a warrany period longer than 2 years, it is not possible for us to accept a return of the item and forward it to the manufacturer on your behalf. We therefore insist that you directly contact the manufacturer that has pronounced this extended warranty.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In the event that the manufacturer "[<textarea class="textarea" placeholder="manufacturer"></textarea>]" does offer a warranty period longer than 2 years, it is not possible for us to accept a return of the item and forward it to the manufacturer on your behalf. We therefore insist that you directly contact the manufacturer that has pronounced this extended warranty.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Since more than 30 days have passed since the delivery date, I can no longer arrange for a replacement or refund for your order.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please contact us as soon as possible about problems with your delivery or orders which you have not yet received.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>A replacement delivery or refund is only possible within the 30 days window following the specified delivery date. So in this case we cannot take any actions.</p>
@@ -698,6 +697,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand you have faced problem.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I wish you did not have to go through that.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This is the maximum time I request you to wait.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you.</p>
     </div>
     <div id="pricematch">
         <h2>Price Match</h2>
