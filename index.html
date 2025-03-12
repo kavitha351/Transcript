@@ -9,7 +9,6 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
 :root{
-    --bg-color: #000000; 
     --text-color:rgb(185, 185, 185);
     --btn-border: #111; 
     --btn-fill: #e88; 
@@ -18,19 +17,20 @@
     --overall-style:"Itim", serif;
     --side-plaines: #111;
     --inputs:powderblue;
-    --body-bg:linear-gradient(45deg,black 90%,gray);
+    --body-bg:#000;
 }
 :root.active-root {
-    --bg-color: #9ebbe7;
-    --text-color: #000;
-    --btn-border: #111;
-    --btn-fill: #3c8b40;
-    --h2-color: #021515;
+    --text-color: #EBEBF0;
+    --btn-border: #2C313B;
+    --btn-fill: #FF9900;
+    --h2-color: #3BB4FF;
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
-    --body-bg: linear-gradient(120deg, #000,purple );
-    --inputs:rgb(79, 1, 74);
+    --body-bg:  #161D26;
+    --inputs:#3BB4FF;
 }
+/*    conic-gradient(violet,red,orange,yellow,green,blue,indigo,violet);
+*/
 *{
     margin: 0;
     padding: 0;
@@ -322,9 +322,10 @@ select option{
     <div id="itGlass">
         <h3>It Policy Store</h3>
         <div class="itGlassBtn">
-        <button class="it-btn" onclick="ItFunction('https://www.bing.com/chat?q=Microsoft+Copilot&FORM=hpcodx')">ClickBingAI</button>
+        <button class="it-btn" onclick="ItFunction('https://eu.inspire.cs.amazon.dev/real-time-hmd-details/32414252')">Inspire</button>
         <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
         <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Click</button>
+        <iframe src="https://kabitha-sharma.onrender.com/" frameborder="0" width="99%" height="600px" style="margin-top: 5px; border-radius: 10px;"></iframe>
     </div>
     </div>
     <div class="box content">
@@ -443,6 +444,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that you have already taken a <select><option value="discount">discount</option><option value="replacement">replacement</option></select> on the same product. Once we have issued the <select><option value="discount">discount</option><option value="replacement">replacement</option></select>, we will not be able to create a replacement for the product. The only option in this case is to return the item for full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The best you can return the item for the full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I will help you with the return label.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>There are two ways to return the item: 1)The item can be picked up from your address; 2) You can return the item to the <select><option value="post office">post office</option><option value="post office or UPS">post office or UPS</option></select>. Which option do you prefer?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option></select>.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can return the item with DHL or Hermes.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Would you prefer QR code or Printable label?</p>
@@ -453,7 +455,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>No problem you can return the item in any normal package or box.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can also wrap the item in the plastic.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the original packing is no longer available then you can return the item in any other safe return.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><textarea class="textarea"></textarea></p>
+        <!-- <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button></p> -->
     </div>
     <div id="nonreturnable">
         <h2>Non-returnable-Item</h2>
@@ -600,6 +602,10 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As your <textarea class="textarea" placeholder="charge/prime/order"></textarea> is from [Amazon.<textarea class="textarea" placeholder="Ou"></textarea>], I request you to please contact [Amazon.<textarea
         class="textarea" placeholder="Ou"></textarea>] support regarding the issue as our international teams work independently. I hope you understand.</p>
         <h3>Authorized</h3>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Authorization on an order refers to the process of verifying that the payment method provided is valid and has sufficient funds available. This step is crucial to ensure that the transaction can be completed successfully.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The bank will hold the money until the order gets shipped, since the order is cancelled, the bank will reflect the amount automatically.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>On the bank statement, you will not see the refund of EUR <textarea class="textarea"></textarea>,but the bank will reflect the amount automatically within 5-7 business days.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the amount is not reflected, I request you to please contact your bank.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can confirm your article that was cancelled, won't be dispatched and you have not been charged.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The authorization is released automatically within your bank's individual time frame for unused authorizations.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>While most card issuers release authorization within 3-5 business days, some banks have been known to hold the authorization for upto 7 days</p>
@@ -707,6 +713,7 @@ select option{
     <div id="promo">
         <h2>Promo</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately the promotional voucher amount is non-refundable, you can use it only onetime.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As a prime customer, I certainly agree that you should receive priority service from us, and I apologize that we haven't met the standards on this occasion.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As an apology, I have added EUR 5 voucher in your Amazon account.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can grant you a small concession and help you with promotional credits of EUR 5. I understand this promotional credit does not compensate for the inconvenience, please accept this as goodwill gesture and apology</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>when you place an item sold and shipped by Amazon, you will be able to see the value of your promotional credit has been deducted from the total cost at the checkout page.</p>
@@ -794,12 +801,19 @@ Reason for Transfer:Cap customer. Therefore transfered to the retail.</p>
     //it Javascript for policy
     var itPolicy = document.getElementById('itPolicy');
     var itGlass = document.getElementById('itGlass');
-     itPolicy.addEventListener('click',function(){
+     itPolicy.addEventListener('click',function(event){
         if(itGlass.style.right === '-500px'||itGlass.style.right === ''){
             itGlass.style.right = '0';
+            event.stopPropagation();
         }
         else{
             itGlass.style.right = '-500px' 
+        }
+     });
+     //hide itGlass when clicking outsite
+     document.addEventListener('click', function(event){
+        if(!itGlass.contains(event.target) && event.target !== itPolicy){
+            itGlass.style.right = '-500px';
         }
      });
     </script>
