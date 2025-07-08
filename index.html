@@ -101,19 +101,24 @@ body{
     width: fit-content;
     border-radius: 3px;
     background: transparent;
-    backdrop-filter: blur(2px);
+    /* backdrop-filter: blur(2px); */
     border: 1px solid rgba(237, 11, 87, 0.806);
     cursor: pointer;
     margin: 2px;
     padding: 0px 10px; 
+    transition: 0.5s ease-in-out;
 }
-
-#itGlass .it-btn:hover{
-    backdrop-filter: blur(0px);
-}
+#itGlass .it-btn:hover {
+    transform: scale(1.1);
+} 
+#itGlass .it-btn:active {
+    background: rgba(237, 11, 87, 0.806);
+    color: black;
+} 
 .content{
     flex: 1;
     color: var(--text-color);
+    padding: 0px 10px;
 }
 .aaps{
     width: 5em;
