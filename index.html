@@ -11,12 +11,12 @@
 :root{
     --text-color:#000;
     --btn-border: green; 
-    --btn-fill: #e88; 
+    --btn-fill: rgb(96, 165, 243); 
     --h2-color: rgb(157, 222, 5);
     --Glass:rgba(40, 39, 39, 0.434);
     --overall-style:"Itim", serif;
     --side-plaines: #111;
-    --inputs:powderblue;
+    --inputs:rgb(8, 218, 245);
     --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif");
 }
 :root.active-root {
@@ -53,6 +53,7 @@ body{
     border-radius: 10px;
     margin: 5px;
     backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 5px 0px black;
 }
 .list{
     background: transparent;
@@ -62,6 +63,7 @@ body{
     align-items: center;
     flex-direction: column;
     padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
 }
 /* It content */
 .list #itPolicy{
@@ -118,10 +120,10 @@ body{
 .content{
     flex: 1;
     color: var(--text-color);
-    padding: 0px 10px;
+    padding: 5px 10px;
 }
 .aaps{
-    width: 5em;
+    width: 4em;
     color: var(--btn-border);
     display: flex;
     justify-content: space-evenly;
@@ -136,11 +138,11 @@ body{
 }
 .list a{
     text-decoration: none;
-    color: white;
-	font-weight: bold;
+    color: black;
+	/* font-weight: bold; */
 	transition: transform 0.2s ease-in-out;
     padding: 5px 10px;
-    font-size: 11.3px;
+    font-size: 12px;
 }
 .list a:active{
     color: var(--text-color) !important;
@@ -157,8 +159,8 @@ h2{
     color: var(--h2-color);
     position: sticky;
     top: 0;
-    background: transparent;
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.468);
+    /* backdrop-filter: blur(5px); */
     height: 40px;
     border: 1px solid var(--btn-border);
     border-radius: 10px;
@@ -166,7 +168,7 @@ h2{
 p{
 	font-size: 15px;
     margin: 10px 0;
-    font-weight: 500;
+    /* font-weight: 500; */
 }
 /* Content Buttons */
 .content button{
@@ -176,7 +178,7 @@ p{
     color: var(--text-color);
 	cursor: pointer;
 	margin-right: 2px;
-    padding: 4px;
+    padding: 5px 8px;
     background: transparent;
     border-radius: 0px 5px 0px 10px;
 }
@@ -184,6 +186,7 @@ p{
 	transform: scale(1.05);
     background: var(--btn-fill);
     color: black;
+    box-shadow: inset 0px 0px 5px 2px black;
 }
 .content button:active{
 background: yellow;
@@ -196,11 +199,20 @@ input,textarea,select{
     display: inline-block;
     vertical-align: middle;
     height: 22px; 
-    color-scheme: dark;
+    border-radius: 5px;
+    /* color-scheme: dark; */
+}
+textarea::placeholder{
+    color: rgba(0, 0, 0, 0.747);
 }
 select option{
-    background-color: var(--btn-fill);
-    color: var(--btn-border);
+    color: black;
+}
+select option:nth-child(even){
+    background-color: rgb(144, 206, 227);
+}
+select option:nth-child(odd){
+    background-color: rgb(142, 223, 223);
 }
  /* to set the notification style when the buttons are clicked */
 .notification {
@@ -301,6 +313,7 @@ select option{
 				<a href="#reconnect">Reconnected</a>
 				<a href="#transfer">Live Transfer</a>
                 <a href="#apologies">Apologies</a>
+                <a href="#empathy">Empathy</a>
 				<a href="#wait">Patience/Research</a>
 				<a href="#sorry">Assurance/Feedback</a>
 				<a href="#end">Closing Lines</a>
@@ -320,6 +333,7 @@ select option{
 				<a href="#expired">WindowExpired</a>
 				<a href="#repair">Repair</a>
 				<a href="#unknown">Charges</a>
+                <a href="#authorize">Authorization</a>
 				<a href="#decline">Declined</a>
 				<a href="#decline-monthly">InvoiceDecline</a>
 				<a href="#contactseller">MFN</a>
@@ -332,20 +346,21 @@ select option{
                 <a href="#annotation">Annotation</a>
                 <a href="#wrapup">WrapUp</a>
                 <div id="itPolicy">IT</div>
-                <div style="color: white;">changes for job2 and 3</div>
     </div>
     <div id="itGlass">
         <h3>It Policy Store</h3>
         <div class="itGlassBtn">
-        <button class="it-btn" onclick="ItFunction('https://eu.inspire.cs.amazon.dev/real-time-hmd-details/32414252')">Inspire</button>
-        <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
-        <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Click</button>
-    </div>
+           <button class="it-btn" onclick="ItFunction('https://eu.inspire.cs.amazon.dev/real-time-hmd-details/')">Inspire</button>
+           <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
+           <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Bing</button>
+           <button class="it-btn" onclick="ItFunction('https://onlineradios.in/new-hits-of-bollywood/')">Radio</button>
+           <button class="it-btn" onclick="ItFunction('https://atoz.amazon.work/shifts/schedule/')">FindShift</button>
+        </div>
     </div>
     <div class="box content">
         <div id="Greetings">
         <h2>Greetings/Intro</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><select><option value="Good Morning">Good Morning</option><option value="Good Afternoon">Good Afternoon</option><option value="Good Evening">Good Evening</option><option value="Good Day">Good Day</option></select>! I hope you're doing well. Welcome to Amazon Customer Service.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><select id="setGreet"><option value="Good Day">Good Day</option><option value="Good Morning">Good Morning</option><option value="Good Afternoon">Good Afternoon</option><option value="Good Evening">Good Evening</option></select>! I hope you're doing well. Welcome to Amazon Customer Service.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>How may I assist you today?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Hi! Thank you for reaching out to Amazon. How may I help you?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry for the inconvenience.</p>
@@ -382,17 +397,14 @@ select option{
     </div>
     <div id="apologies">
         <h2>Apology</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the delay in delivering your order. I understand how important this is, and I appreciate your patience.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the delay in delivering your order.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry your package hasn’t arrived as expected. I will check the status and find the best solution for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received a <select><option value="damaged">damaged</option><option value="defective">defective</option><option value="incomplete">incomplete item</option></select> product. That’s not the experience we want for our customers. Let me make this right for you.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand how disappointing this must be. I’ll be happy to assist you with a replacement or refund.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the mix-up. I understand how frustrating this can be, and I’ll take care of this for you immediately.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the mix-up.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received the wrong item. I will arrange a return and ensure you get the correct product as soon as possible.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m sorry for any confusion regarding your <select><option value="billing">billing</option><option value="refund">refund</option></select>. I understand your concern, and I’ll look into this right away to get it resolved.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I truly regret the inconvenience this has caused. Let me check the details and provide you with an update as soon as possible.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize that your cancellation request could not be processed as expected. Let me check what I can do to help resolve this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry for the trouble caused by this cancellation issue. I’ll do my best to assist you with the next steps.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that your experience with us has not been up to expectations. We truly value your feedback, and I’d love to make this right for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize if my response did not meet your expectations. I am here to help, and I appreciate the opportunity to assist you better.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that you have not received the refund till now. Let me check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that you received an empty package. May I know was the packaging damaged?</p>
@@ -401,7 +413,23 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>We are extremely sorry but your request is beyond the scope of what we could do.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I wish I could really help you out here, but we are unable to fulfill your request at the moment. As soon as we get an update, we will let you know.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>We apologies for not being able to complete your request right now. Let me check if there is anything  else I can do to help you manage this.</p>
+    </div>
+    <div id="empathy">
+        <h2>Empathy</h2>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how important this is, and I appreciate your patience.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand how disappointing this must be. I’ll be happy to assist you with a replacement or refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how frustrating this can be, and I’ll take care of this for you immediately.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I truly regret the inconvenience this has caused. Let me check the details and provide you with an update as soon as possible.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that your experience with us has not been up to expectations. We truly value your feedback, and I’d love to make this right for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand your frustration and I am extremely sorry for what happened. Let me check how can I make it up to you.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your feelings about this are completely valid.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I want you to know that we take your concerns seriously.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I know how tough that is, but I appreciate you bringing this to our attention.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry you've had to take the time to call about this, but I am glad you did.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can sense your frustration, and I am here to help.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Even though I know this has been tough, your feedback is really valuable and helps us improve our service.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for giving us the opportunity to address what must be a really frustrating issue.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand your concern, and I assure you that I’ll check this thoroughly and provide you with the best resolution.</p>
     </div>
     <div id="wait">
         <h2>Patience/Research</h2>
@@ -437,7 +465,6 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>No need to worry! Your refund is in progress, and I’ll keep you updated every step of the way.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how frustrating this can be, and I’ll make sure your replacement is processed smoothly.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You don’t have to worry about a thing! I’ll ensure that your replacement is on its way as soon as possible.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand your concern, and I assure you that I’ll check this thoroughly and provide you with the best resolution.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please rest assured that I’m looking into this for you. I’ll make sure you receive the correct update as soon as possible.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand that technical issues can be frustrating, but I’m here to help, and I’ll do my best to get this resolved for you quickly</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You’re in good hands! I’ll guide you step by step until we have this issue fixed.</p>
@@ -525,7 +552,7 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can return the item with DHL or Hermes.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Would you prefer QR code or Printable label?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Would you prefer refund to the original payment method or to the Amazon account as a gift card?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. I have created the return as requested with <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option></select>. You will receive the return label via email to the email address registered in your customer account. We will refund you the amount, as soon as the item arrives at our returns center.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. I have created the return as requested with <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option><option value="Correos">Correos</option><option value="Celeritas">Celeritas</option></select>. You will receive the return label via email to the email address registered in your customer account. We will refund you the amount, as soon as the item arrives at our returns center.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have successfully arranged a pick up at the given address. The item will be picked up within 3 days. No need to print label. Carrier will bring the return label with them. And you will also receive an email from the carrier with the pickup date.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The item will be picked up within 24-72 hours and you will receive an email regarding the pick up.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>No problem you can return the item in any normal package or box.</p>
@@ -677,8 +704,20 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have located the charge of EUR [<textarea class="textarea" placeholder="Amount"></textarea>] which was for the order [<textarea class="textarea" placeholder="Ordernumber"></textarea>].</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As your <textarea class="textarea" placeholder="charge/prime/order"></textarea> is from [Amazon.<textarea class="textarea" placeholder="Ou"></textarea>], I request you to please contact [Amazon.<textarea
         class="textarea" placeholder="Ou"></textarea>] support regarding the issue as our international teams work independently. I hope you understand.</p>
-        <h3>Authorized</h3>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Authorization on an order refers to the process of verifying that the payment method provided is valid and has sufficient funds available. This step is crucial to ensure that the transaction can be completed successfully.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the transaction number. The transaction number is [<textarea class="textarea" placeholder="Ordernumber"></textarea>].</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I request you to please check with your bank with the transaction ID.</p>
+    </div>
+    <div id="authorize">
+        <h2>Authorized</h2>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Following your request, I have checked your order number and I can now let you know that the amount of [<textarea class="textarea" placeholder="Amount"></textarea>] has not been charged to your credit card. However, the amount may be temporarily blocked as we requested a payment authorization on [<textarea class="textarea" placeholder="Insert Authorization Date"></textarea>].</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Following your request, I have checked your order number and confirm that the amount of [<textarea class="textarea" placeholder="Amount"></textarea>] has been charged only once to your credit card, however the sum may be temporarily blocked, because on [<textarea class="textarea" placeholder="Insert Authorization Date"></textarea>] we requested a previous payment authorisation that has not been used.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Following your request, I have checked your order number and confirm that the amount of [<textarea class="textarea" placeholder="Amount"></textarea>] EUR has not been charged to your credit card. However, the amount may be temporarily blocked because we requested an initial authorisation of [<textarea class="textarea" placeholder="INSERT AUTHORISATION AMOUNT"></textarea>] EUR on [<textarea class="textarea" placeholder="INSERT DATE OF AUTHORISATION"></textarea>], which was cancelled by the system and then used for only [<textarea class="textarea" placeholder="INSERT PARTIAL AMOUNT CHARGED"></textarea>] EUR.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>When you place an order on Amazon.it or Amazon Marketplace, Amazon requires payment authorisation for the order amount to ensure that your credit card is valid and has not been reported as lost or stolen.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This is one of the security measures we use to protect our customers.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your credit institution will transfer the amounts for which authorisation has been requested from the available balance to the balance on your card; therefore, the authorised amounts will not be visible in the available balance on your card.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>While the order cancellation is immediate, the release of the amount and its subsequent transfer by your credit institution from the account balance to the available balance takes longer, depending on the institution that issued the card.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>By contacting the credit card issuer, you can confirm that this is only a payment authorisation and ask for more information on release times.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please note that the amount authorised for a cancelled order cannot be used for a subsequent order until it has been released by your bank.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The bank will hold the money until the order gets shipped, since the order is cancelled, the bank will reflect the amount automatically.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>On the bank statement, you will not see the refund of EUR <textarea class="textarea"></textarea>,but the bank will reflect the amount automatically within 5-7 business days.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the amount is not reflected, I request you to please contact your bank.</p>
@@ -687,8 +726,6 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>While most card issuers release authorization within 3-5 business days, some banks have been known to hold the authorization for upto 7 days</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I request you to please wait for only 5-7 business days amount will be reflect in your account.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Only the amount has been authorized you will not be charged for this for this rest assured.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the transaction number. The transaction number is [<textarea class="textarea" placeholder="Ordernumber"></textarea>].</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I request you to please check with your bank with the transaction ID.</p>
     </div>
     <div id="decline">
         <h2>Declined</h2>
@@ -731,11 +768,11 @@ select option{
     </div>
     <div id="AtoZclaim">
         <h2>AtoZClaim</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have now filed an A-to-z Guarantee claim for you. It may take up to two weeks for the claim to be reviewed. You will be informed by email about the result.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have now filed an A-to-z Guarantee claim for you. It may take a week for the claim to be reviewed. You will be informed by email about the result.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I filed a claim on your behalf for the following order:<textarea class="textarea"></textarea></p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize and understand how annoying it is if a seller does not respond to your messages.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have now filed Atoz claim for this order.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>It usually takes 14 days for the claim to be processed. Once the claim is processed, you will get the full refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>It usually takes 7 days for the claim to be processed. Once the claim is processed, you will get the full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>When you purchase items sold and shipped by a third party seller, the Amazon Atoz Guarantee applies to you. The Atoz claim covers both the on-time delivery and the condition of the items.</p>
     </div>
     <div id="invoice">
@@ -776,7 +813,10 @@ select option{
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I hope you understand.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Let me check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please allow me a minute</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand you have faced problem.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please send me the images of damaged item on this link?</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please send me the return receipt on this link?</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I don't mean to rush you but have you send us the return receipt on this link?</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I don't mean to rush you but have you send the images of the item on this link?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I wish you did not have to go through that.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This is the maximum time I request you to wait.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you.</p>
@@ -822,13 +862,9 @@ Customerconcern:<textarea class="textarea"></textarea><br>
 Reason for transfer:for better assistance and <textarea class="textarea"></textarea>.</p>
     </div>
     <div id="wrapup">
-        <h2>WrapUp</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Order id: <textarea class="textarea"></textarea> <br>
-        Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Order id: <textarea class="textarea"></textarea> <br>
-            Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Order id: <textarea class="textarea"></textarea> <br>
-        Issue and resolution: <textarea class="textarea"></textarea></p>
+    <h2>WrapUp</h2>
+    <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
+    <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
     </div>
     </div>
     <div class="box aaps">
@@ -879,6 +915,33 @@ const closeGlass = (event) => {
 itPolicy.addEventListener('click', toggleGlass);
 document.addEventListener('click', closeGlass);
 
-    </script>
+// function greetings() {
+//     let now = new Date();
+//     let options = {hour: "2-digit", hourCycle: "h23", timeZone: "Europe/Rome"};
+//     let italyHour = new Intl.DateTimeFormat("en-US", options).format(now);
+//     italyHour = parseInt(italyHour, 10); // ensure number
+//     let greetingSelect = document.getElementById('setGreet');
+
+//     let greeting = "Good Evening"; // default
+//     if (italyHour >= 5 && italyHour < 12) {
+//       greeting = "Good Morning";
+//     } else if (italyHour >= 12 && italyHour < 17) {
+//       greeting = "Good Afternoon";
+//     } else if (italyHour >= 17 && italyHour < 21) {
+//       greeting = "Good Evening";
+//     } else {
+//       greeting = "Good Evening"; // late night fallback
+//     }
+//     // set the greeting text
+//     for (let i=0;i<greetingSelect.options.length; i++){
+//         if(greetingSelect.options[i].value === greeting){
+//             greetingSelect.selectedIndex = i;
+//             break;
+//         }
+//     }
+// }
+// greetings(); // initial call
+// setInterval(greetings, 3600000); // update ever hour
+</script>
 </body>
 </html>
