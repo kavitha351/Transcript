@@ -11,13 +11,13 @@
 :root{
     --text-color:#000;
     --btn-border: green; 
-    --btn-fill: rgb(96, 165, 243); 
+    --btn-fill: rgb(20, 21, 21); 
     --h2-color: rgb(157, 222, 5);
     --Glass:rgba(40, 39, 39, 0.434);
     --overall-style:"Itim", serif;
     --side-plaines: #111;
     --inputs:rgb(8, 218, 245);
-    --body-bg:url("bg.png");
+    --body-bg:url("https://raw.githubusercontent.com/Origamini/Transcript/main/animelyt.png");
 }
 :root.active-root {
     --text-color: #EBEBF0;
@@ -185,11 +185,12 @@ p{
 .content button:hover {
 	transform: scale(1.05);
     background: var(--btn-fill);
-    color: black;
-    box-shadow: inset 0px 0px 5px 2px black;
+    color: white;
+    box-shadow: inset 0px 0px 5px 2px var(--inputs);
 }
 .content button:active{
 background: yellow;
+color: black;
 }
 input,textarea,select{
 	outline: none;
