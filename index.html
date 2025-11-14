@@ -10,14 +10,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
 :root{
     --text-color:#000;
-    --btn-border: green; 
+    --btn-border: rgb(16, 63, 59); 
     --btn-fill: rgb(20, 21, 21); 
     --h2-color: rgb(157, 222, 5);
     --Glass:rgba(40, 39, 39, 0.434);
     --overall-style:"Itim", serif;
     --side-plaines: #111;
     --inputs:rgb(8, 218, 245);
-    --body-bg:url("https://raw.githubusercontent.com/Origamini/Transcript/main/animelyt.png");
+    --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif");
 }
 :root.active-root {
     --text-color: #EBEBF0;
@@ -29,8 +29,6 @@
     --body-bg:  url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBna3ZpOWh6MHl4ZTNmaTBsd3k0YnB6YWZiaThzMDdkbTZwNmJjNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9xRLvfhAGVeiys/giphy.gif"); 
     --inputs:#3BB4FF;
 }
-/*  https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif
-*/
 *{
     margin: 0;
     padding: 0;
@@ -41,22 +39,20 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    height: 100vh;
     background: var(--body-bg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 .box{
-    height: 99vh;
-    overflow-y: scroll;
+    height: 98vh;
     overflow-x: hidden;
-    border: 1px solid rgba(152, 251, 152, 0.034);
     border-radius: 10px;
     margin: 5px;
     backdrop-filter: blur(5px);
     box-shadow: 0px 0px 5px 0px black;
 }
 .list{
-    background: transparent;
     width: 9em;
     display: flex;
     justify-content: flex-start;
@@ -137,20 +133,27 @@ body{
     width: 2px;
 }
 .list a{
+    position: relative;
     text-decoration: none;
     color: black;
-	/* font-weight: bold; */
 	transition: transform 0.2s ease-in-out;
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 13px;
 }
-.list a:active{
-    color: var(--text-color) !important;
+.list a::after{
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    height: 1.5px;
+    width: 100%;
+    left: 0;
+    background: var(--inputs);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
 }
-.list a:hover{
-	transform: scale(1.1);
-    border:1px solid var(--h2-color);
-    border-radius: 30px;
+.list a:hover::after{
+    transform: scaleX(1);
 }
 /* content element design design */
 h2{
@@ -160,15 +163,13 @@ h2{
     position: sticky;
     top: 0;
     background: rgba(0, 0, 0, 0.468);
-    /* backdrop-filter: blur(5px); */
     height: 40px;
     border: 1px solid var(--btn-border);
     border-radius: 10px;
 }
 p{
-	font-size: 15px;
+	font-size: 16px;
     margin: 10px 0;
-    /* font-weight: 500; */
 }
 /* Content Buttons */
 .content button{
@@ -355,36 +356,29 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
            <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Bing</button>
            <button class="it-btn" onclick="ItFunction('https://onlineradios.in/new-hits-of-bollywood/')">Radio</button>
+           <button class="it-btn" onclick="ItFunction('https://ait.amazon.dev/')">Translator</button>
            <button class="it-btn" onclick="ItFunction('https://atoz.amazon.work/shifts/schedule/')">FindShift</button>
         </div>
     </div>
     <div class="box content">
         <div id="Greetings">
         <h2>Greetings/Intro</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><select id="setGreet"><option value="Good Day">Good Day</option><option value="Good Morning">Good Morning</option><option value="Good Afternoon">Good Afternoon</option><option value="Good Evening">Good Evening</option></select>! I hope you're doing well. Welcome to Amazon Customer Service.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><select id="setGreet"><option value="Good Day">Good Day</option><option value="Good Morning">Good Morning</option><option value="Good Afternoon">Good Afternoon</option><option value="Good Evening">Good Evening</option></select>! Thank you for contacting Amazon support, my name is [Kavitha]. I hope you’re doing well today.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>How may I assist you today?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Hi! Thank you for reaching out to Amazon. How may I help you?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry for the inconvenience.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please allow me 2 minutes to check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Could you please elaborate the issue so that I can help you further?</p>
     </div>
     <div id="reconnect">
         <h2>Chat Reconnected</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the interrupted connection.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am going to quickly have a look at preceding conversations to this issue.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Just a moment please.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the interruption of the previous chat.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If you'll allow me a moment, I'm just going to familiarize myself with your inquiry.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Chat reconnected. I sincerely apologize for the interrupted connection.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the previous chat getting interrupted. Let’s continue where we left off.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Let me quickly go through our previous conversation to assist you better.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the interrupted connection. I am going to quickly have a look at preceding conversations to this issue. Please allow me two minutes.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I apologize for the interruption of the previous chat. If you'll allow me a moment, I'm just going to familiarize myself with your inquiry. Just a moment please.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Chat reconnected. I sincerely apologize for the interrupted connection. Let me quickly go through our previous conversation to assist you better.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If you’ll allow me a moment, I’m just going to review our previous discussion.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m going to quickly check the preceding conversations to ensure I assist you properly.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately, I’m unable to see the previous chat. Could you kindly share the details again?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I appreciate your patience. If you could provide a brief summary of the issue, I’ll be happy to assist you further.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for waiting! I have reviewed the chat and will continue assisting you now.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I truly appreciate your patience. Let’s get this resolved for you right away.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m here to help. Let’s pick up where we left off!</p>
     </div>
     <div id="transfer">
         <h2>Live Trasnfer</h2>
@@ -398,8 +392,8 @@ select option:nth-child(odd){
     </div>
     <div id="apologies">
         <h2>Apology</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the delay in delivering your order.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry your package hasn’t arrived as expected. I will check the status and find the best solution for you.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the delay in delivering your order. I understand how important this is, and I appreciate your patience. I will check the status and find the best solution for you.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry your package hasn’t arrived as expected. </p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received a <select><option value="damaged">damaged</option><option value="defective">defective</option><option value="incomplete">incomplete item</option></select> product. That’s not the experience we want for our customers. Let me make this right for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the mix-up.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received the wrong item. I will arrange a return and ensure you get the correct product as soon as possible.</p>
@@ -417,8 +411,8 @@ select option:nth-child(odd){
     </div>
     <div id="empathy">
         <h2>Empathy</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how important this is, and I appreciate your patience.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand how disappointing this must be. I’ll be happy to assist you with a replacement or refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand how disappointing this must be and I assure you that I’ll check this thoroughly and provide you with the best resolution.I’ll be happy to assist you with a replacement or refund.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’ll be happy to assist you with a replacement or refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how frustrating this can be, and I’ll take care of this for you immediately.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I truly regret the inconvenience this has caused. Let me check the details and provide you with an update as soon as possible.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that your experience with us has not been up to expectations. We truly value your feedback, and I’d love to make this right for you.</p>
@@ -564,12 +558,13 @@ select option:nth-child(odd){
     <div id="nonreturnable">
         <h2>Non-returnable-Item</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that the item is non retunable item ,therefore you are not getting the option to create the return label.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case as an exception, I will help you with the refund, you may keep the item. </p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case, as a one-time exception I will help you with the full refund and you do not need to return the item to us.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can check whether an item is returnable or non-returnable on Amazon's website by visiting the product's page and looking for the "Return policy" section. Typically, this information is displayed near the price and shipping details. Additionally, you can often find details about the return policy in the product description or in the "Shipping & returns" section on the product page. If you're unsure, you can also contact us for clarification. I hope you understand.</p>
     </div>
     <div id="refund">
         <h2>Refund</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Due to the nature of the item, as an exception we would ask you not to return the item to us. Please keep the item or, if no longer usable, dispose of it appropriately.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As an apology, I will issue a full refund and you do not need to return the item.</p>
         <p style="color: rgb(255, 0, 217);"><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to say that the refund was not successful due to technical glitch from our end. I will help you with the refund right now.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As you did not receive the item, I will refund the amount to you. I request you to please place a new order.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I can help you with the refund. May I know would you prefer refund to original Payment method or to your Amazon account as a Gift certificate?</p>
@@ -915,34 +910,6 @@ const closeGlass = (event) => {
 // Attach event listeners
 itPolicy.addEventListener('click', toggleGlass);
 document.addEventListener('click', closeGlass);
-
-// function greetings() {
-//     let now = new Date();
-//     let options = {hour: "2-digit", hourCycle: "h23", timeZone: "Europe/Rome"};
-//     let italyHour = new Intl.DateTimeFormat("en-US", options).format(now);
-//     italyHour = parseInt(italyHour, 10); // ensure number
-//     let greetingSelect = document.getElementById('setGreet');
-
-//     let greeting = "Good Evening"; // default
-//     if (italyHour >= 5 && italyHour < 12) {
-//       greeting = "Good Morning";
-//     } else if (italyHour >= 12 && italyHour < 17) {
-//       greeting = "Good Afternoon";
-//     } else if (italyHour >= 17 && italyHour < 21) {
-//       greeting = "Good Evening";
-//     } else {
-//       greeting = "Good Evening"; // late night fallback
-//     }
-//     // set the greeting text
-//     for (let i=0;i<greetingSelect.options.length; i++){
-//         if(greetingSelect.options[i].value === greeting){
-//             greetingSelect.selectedIndex = i;
-//             break;
-//         }
-//     }
-// }
-// greetings(); // initial call
-// setInterval(greetings, 3600000); // update ever hour
 </script>
 </body>
 </html>
