@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starry Background</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: black;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #fff; /* Default color, will be overridden by JS */
+            animation: twinkle 1s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            50% {
+                opacity: 0;
+            }
+            75%{
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <!-- Your existing HTML content here -->
+
+    <script>
+        // Dynamically create stars with random colors
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+
+            for (let i = 0; i < 1000; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.height=`${Math.random()*2}px`;
+                star.style.width=`${Math.random()*2}px`;
+                setInterval(()=>{
+                    star.style.top = `${Math.random() * 100}vh`;
+                    star.style.left = `${Math.random() * 100}vw`;
+                },1000);
+                star.style.backgroundColor = getRandomColor();
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+   createStars();
+    </script>
+</body>
+</html>
