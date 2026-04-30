@@ -1,0 +1,230 @@
+   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
+:root.active-root{
+    --text-color:#000;
+    --btn-border: rgba(0, 157, 175, 0.966);
+    --btn-fill: rgb(20, 21, 21); 
+    --h2-color: rgb(157, 222, 5);
+    --Glass:rgba(40, 39, 39, 0.434);
+    --side-plaines: #111;
+    --inputs:rgb(8, 218, 245);
+    --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif");
+}
+:root {
+    --text-color: #EBEBF0;
+    --btn-border: #000;
+    --btn-fill: #00ff9d;
+    --h2-color: #3BB4FF;
+    --Glass:rgba(62, 40, 59, 0.5);
+    --side-plaines: rgb(62, 40, 59);
+    --inputs:#e7f921;
+    --body-bg:  url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBna3ZpOWh6MHl4ZTNmaTBsd3k0YnB6YWZiaThzMDdkbTZwNmJjNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9xRLvfhAGVeiys/giphy.gif"); 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kedebideri", sans-serif;
+}
+body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background: var(--body-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box{
+    height: 98vh;
+    overflow-x: hidden;
+    border-radius: 25px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.027);
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.089);
+    border-top: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255, 0.3);
+}
+.list{
+    width: 9em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
+}
+/* It content */
+.list #itPolicy{
+    color: var(--text-color);
+    cursor: pointer;
+}
+#itGlass{
+    position:fixed;
+    height: 95vh;
+    width: 500px;
+    background: var(--Glass);
+    transition: right 0.3s ease-in-out;
+    right: -500px;
+    border-left: 1px solid var(--btn-border);
+    flex-direction: column;
+    backdrop-filter: blur(2px);
+    z-index: 99;
+    border-radius: 50px 0px 0px 50px;
+}
+#itGlass h3{
+    position: absolute;
+    top: 20px;
+    left: 30%;
+    font-size: xx-large;
+}
+#itGlass .itGlassBtn {
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:start;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+#itGlass .it-btn {
+    position: relative;
+    color: var(--text-color);
+    height: 25px;
+    width: fit-content;
+    border-radius: 3px;
+    background: transparent;
+    border: 1px solid rgba(237, 11, 87, 0.806);
+    cursor: pointer;
+    margin: 2px;
+    padding: 0px 10px; 
+    transition: 0.5s ease-in-out;
+}
+#itGlass .it-btn:hover {
+    transform: scale(1.1);
+} 
+#itGlass .it-btn:active {
+    background: rgba(237, 11, 87, 0.806);
+    color: black;
+} 
+.content{
+    flex: 1;
+    color: var(--text-color);
+    padding: 5px 5px;
+    font-weight: bold;
+}
+.aaps{
+    width: 4em;
+    color: var(--btn-border);
+    -webkit-text-stroke: 1px var(--text-color);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.list::-webkit-scrollbar,
+.content::-webkit-scrollbar,
+.anchortags::-webkit-scrollbar
+{
+    width: 2px;
+}
+.list a{
+    position: relative;
+    text-decoration: none;
+    color: black;
+	transition: transform 0.2s ease-in-out;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.list a::after{
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    height: 1.5px;
+    width: 100%;
+    left: 0;
+    background: #9D0663;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+}
+.list a:hover::after{
+    transform: scaleX(1);
+}
+/* content element design design */
+h2{
+    display: grid;
+    place-items: center;
+    color: var(--h2-color);
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.468);
+    height: 40px;
+    border: 1px solid var(--btn-border);
+    border-radius: 20px;
+    font-size: 20px;
+}
+p{
+	font-size: 15px;
+    margin: 10px 0;
+}
+/* Content Buttons */
+.content button{
+	transition: transform 0.2s ease-in-out;
+	border: 2px solid var(--btn-fill);
+    color: var(--text-color);
+	cursor: pointer;
+	margin-right: 2px;
+    padding: 3px 6px;
+    background: transparent;
+    border-radius: 0px 5px 0px 10px;
+}
+.content button:hover {
+	transform: scale(1.05);
+    background: var(--btn-fill);
+    color: white;
+    box-shadow: inset 0px 0px 2px 1px var(--inputs);
+}
+.content button:active{
+background: yellow;
+color: black;
+}
+input,textarea,select{
+	outline: none;
+	background: transparent;
+	color: var(--inputs);
+	border: 1px solid var(--btn-border);
+    display: inline-block;
+    vertical-align: middle;
+    height: 22px; 
+    border-radius: 5px;
+    color-scheme: dark;
+    font-weight: bold;
+}
+textarea::placeholder{
+    color: rgba(0, 0, 0, 0.747);
+}
+select option{
+    color: black;
+}
+select option:nth-child(even){
+    background-color: rgb(144, 206, 227);
+}
+select option:nth-child(odd){
+    background-color: rgb(142, 223, 223);
+}
+ /* to set the notification style when the buttons are clicked */
+.notification {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background-color: rgba(49, 44, 44, 0.5);
+	padding: 10px;
+	border-radius: 5px;
+	z-index: 9999;
+}
+#togglemode{
+    cursor: pointer;
+}
