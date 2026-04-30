@@ -1,30 +1,40 @@
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
-:root.active-root{
+:root{
     --text-color:#000;
     --btn-border: rgba(0, 157, 175, 0.966);
-    --btn-fill: rgb(20, 21, 21); 
+    --btn-fill: #00ff9d; 
     --h2-color: rgb(157, 222, 5);
     --Glass:rgba(40, 39, 39, 0.434);
     --side-plaines: #111;
     --inputs:rgb(8, 218, 245);
-    --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif");
+    /* --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif"); */
 }
-:root {
+:root.active-root {
     --text-color: #EBEBF0;
     --btn-border: #000;
-    --btn-fill: #00ff9d;
+    --btn-fill:  pink;
     --h2-color: #3BB4FF;
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
     --inputs:#e7f921;
-    --body-bg:  url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBna3ZpOWh6MHl4ZTNmaTBsd3k0YnB6YWZiaThzMDdkbTZwNmJjNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9xRLvfhAGVeiys/giphy.gif"); 
+    /* --body-bg:  url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBna3ZpOWh6MHl4ZTNmaTBsd3k0YnB6YWZiaThzMDdkbTZwNmJjNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9xRLvfhAGVeiys/giphy.gif");  */
+    --overlay: rgba(0, 0, 0, 0.5);
+}
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Kedebideri", sans-serif;
+    transition: all 0.25s ease;
 }
 body{
     display: flex;
@@ -37,15 +47,15 @@ body{
     background-position: center;
 }
 .box{
-    height: 98vh;
+    height: 95vh;
     overflow-x: hidden;
-    border-radius: 25px;
-    margin: 5px;
-    background-color: rgba(255, 255, 255, 0.027);
-    backdrop-filter: blur(8px);
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.089);
-    border-top: 1px solid rgba(255,255,255,0.4);
-    border-right: 1px solid rgba(255,255,255, 0.3);
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 
+        0 0 40px rgba(0,255,200,0.1),
+        inset 0 0 20px rgba(255,255,255,0.05);
 }
 .list{
     width: 9em;
@@ -63,16 +73,17 @@ body{
 }
 #itGlass{
     position:fixed;
-    height: 95vh;
+    height: 75vh;
     width: 500px;
     background: var(--Glass);
     transition: right 0.3s ease-in-out;
     right: -500px;
     border-left: 1px solid var(--btn-border);
     flex-direction: column;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(15px);
     z-index: 99;
     border-radius: 50px 0px 0px 50px;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
 }
 #itGlass h3{
     position: absolute;
@@ -165,31 +176,33 @@ h2{
     border: 1px solid var(--btn-border);
     border-radius: 20px;
     font-size: 20px;
+    text-shadow: 0 0 10px rgba(76,201,255,0.4);
 }
 p{
 	font-size: 15px;
     margin: 10px 0;
 }
 /* Content Buttons */
-.content button{
-	transition: transform 0.2s ease-in-out;
-	border: 2px solid var(--btn-fill);
+.content button {
+    border: 1px solid var(--btn-border);
     color: var(--text-color);
-	cursor: pointer;
-	margin-right: 2px;
-    padding: 3px 6px;
-    background: transparent;
-    border-radius: 0px 5px 0px 10px;
+    background: rgba(0,255,200,0.05);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,255,200,0.1);
+    margin-right: 4px;
 }
+
 .content button:hover {
-	transform: scale(1.05);
     background: var(--btn-fill);
-    color: white;
-    box-shadow: inset 0px 0px 2px 1px var(--inputs);
+    color: black;
+    box-shadow: 0 0 20px var(--btn-fill);
+    transform: translateY(-2px);
 }
-.content button:active{
-background: yellow;
-color: black;
+
+.content button:active {
+    transform: scale(0.95);
 }
 input,textarea,select{
 	outline: none;
