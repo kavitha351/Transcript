@@ -8,8 +8,8 @@
 <style>
        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
-:root{
-    --text-color:#000;
+:root.active-root{
+    --text-color:gray;
     --btn-border: rgba(0, 157, 175, 0.966);
     --btn-fill: #00ff9d; 
     --h2-color: rgb(157, 222, 5);
@@ -18,7 +18,7 @@
     --inputs:rgb(8, 218, 245);
     /* --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif"); */
 }
-:root.active-root {
+:root {
     --text-color: #EBEBF0;
     --btn-border: #000;
     --btn-fill:  pink;
@@ -66,7 +66,7 @@ body{
         inset 0 0 20px rgba(255,255,255,0.05);
 }
 .list{
-    width: 9em;
+    width: 10em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -92,12 +92,7 @@ body{
     z-index: 99;
     border-radius: 50px 0px 0px 50px;
     box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-}
-#itGlass h3{
-    position: absolute;
-    top: 20px;
-    left: 30%;
-    font-size: xx-large;
+    padding: 0px 20px 0 20px;
 }
 #itGlass .itGlassBtn {
     width: 100%;
@@ -105,7 +100,8 @@ body{
     justify-content:center;
     align-items:start;
     flex-wrap: wrap;
-    margin-top: 70px;
+    margin-top: 45px;
+    /* background-color: pink; */
 }
 #itGlass .it-btn {
     position: relative;
@@ -116,9 +112,10 @@ body{
     background: transparent;
     border: 1px solid rgba(237, 11, 87, 0.806);
     cursor: pointer;
-    margin: 2px;
+    margin: 3px;
     padding: 0px 10px; 
     transition: 0.5s ease-in-out;
+    font-weight: 500;
 }
 #itGlass .it-btn:hover {
     transform: scale(1.1);
@@ -375,7 +372,6 @@ select option:nth-child(odd){
                 <div id="itPolicy">IT</div>
     </div>
     <div id="itGlass">
-        <h3>It Policy Store</h3>
         <div class="itGlassBtn">
            <button class="it-btn" onclick="ItFunction('https://eu.inspire.cs.amazon.dev/real-time-hmd-details/')">Inspire</button>
            <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
@@ -383,12 +379,14 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://onlineradios.in/new-hits-of-bollywood/')">Radio</button>
            <button class="it-btn" onclick="ItFunction('https://ait.amazon.dev/')">Translator</button>
            <button class="it-btn" onclick="ItFunction('https://atoz.amazon.work/shifts/schedule/')">FindShift</button>
+           <button class="it-btn" onclick="ItFunction('https://cscentral-eu.amazon.com/taw/agent-performance?ie=UTF8')">TimeTracker</button>
+           <button class="it-btn" onclick="ItFunction('https://csanalytics.amazon.com/DashboardUrl?dashboardId=7f34ba64-2c42-46b2-8442-4be34c79ccb2')">ScoreCard</button>
            <button class="it-btn" onclick="ItFunction('https://music.amazon.in/')">Podcast</button>
            <button class="it-btn" onclick="ItFunction('https://drive.corp.amazon.com')">Drive</button>
            <button class="it-btn" onclick="ItFunction('https://www.britannica.com/games/loop')">Loop</button>
            <button class="it-btn" onclick="ItFunction('https://www.merriam-webster.com/games/pilfer')">Pilfer</button>
            <button class="it-btn" onclick="ItFunction('https://www.britannica.com/games/victordle/')">Victordle</button>
-            <iframe src='https://www.google.co.in/logos/fnbx/solitaire/standalone.html' width="500" height="350" style="margin: 20px;"></iframe>
+           <iframe src='https://www.google.co.in/logos/fnbx/solitaire/standalone.html' width="470" height="350" style="margin-top: 7px;"></iframe>
         </div>
     </div>
     <div class="box content">
