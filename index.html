@@ -139,6 +139,11 @@ body{
     align-items: center;
     flex-direction: column;
 }
+.aaps .germany-time{
+    font-size: small;
+    -webkit-text-stroke: 0px var(--text-color);
+    color: var(--text-color);
+}
 .list::-webkit-scrollbar,
 .content::-webkit-scrollbar,
 .anchortags::-webkit-scrollbar
@@ -150,7 +155,7 @@ body{
     text-decoration: none;
     color: black;
 	transition: transform 0.2s ease-in-out;
-    padding: 5px 10px;
+    padding: 4px 10px;
     font-size: 12px;
     font-weight: bold;
 }
@@ -391,7 +396,7 @@ select option:nth-child(odd){
     </div>
     <div class="box content">
         <div id="Greetings">
-        <h2>Greetings/Intro</h2>
+        <h2>Greetings</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button><select id="setGreet"><option value="Good Day">Good Day</option><option value="Good Morning">Good Morning</option><option value="Good Afternoon">Good Afternoon</option><option value="Good Evening">Good Evening</option></select>! Thank you for contacting Amazon support, my name is [Kavitha]. I hope you’re doing well today.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>How may I assist you today?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Hi! Thank you for reaching out to Amazon. How may I help you?</p>
@@ -887,6 +892,7 @@ Reason for transfer:for better assistance and <textarea class="textarea"></texta
         <i class='bx bx-sun bx-spin bx-md'></i>
         <div id="togglemode"><i class='bx bx-toggle-left bx-sm'></i></div>
         <img src="https://25.media.tumblr.com/4884e768ca90d98013f97b75a4c0daf6/tumblr_mml6b1kNYS1qdqj3mo1_100.gif" alt="error" height="40px" width="40px">
+        <div id="germany-time" class="germany-time"></div>
     </div>
     <script>
         var toggle = document.getElementById('togglemode');
@@ -925,6 +931,20 @@ const closeGlass = (event) => {
 // Attach event listeners
 itPolicy.addEventListener('click', toggleGlass);
 document.addEventListener('click', closeGlass);
+
+// show time in germany
+function updateTime() {
+    const options = {
+        timeZone: 'Europe/Berlin',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    const time = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+    document.getElementById('germany-time').innerText =  time;
+}
+setInterval(updateTime, 1000);
+updateTime();
 </script>
 </body>
 </html>
