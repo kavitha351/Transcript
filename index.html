@@ -9,24 +9,22 @@
        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
 :root.active-root{
-    --text-color:gray;
+    --text-color:black;
     --btn-border: rgba(0, 157, 175, 0.966);
-    --btn-fill: #00ff9d; 
+    --btn-fill:  pink; 
     --h2-color: rgb(157, 222, 5);
     --Glass:rgba(40, 39, 39, 0.434);
     --side-plaines: #111;
-    --inputs:rgb(8, 218, 245);
-    /* --body-bg:url("https://media1.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif"); */
+    --inputs:rgb(0, 0, 0);
 }
 :root {
     --text-color: #EBEBF0;
     --btn-border: #000;
-    --btn-fill:  pink;
+    --btn-fill: #00ff9d ;
     --h2-color: #3BB4FF;
     --Glass:rgba(62, 40, 59, 0.5);
     --side-plaines: rgb(62, 40, 59);
     --inputs:#e7f921;
-    /* --body-bg:  url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBna3ZpOWh6MHl4ZTNmaTBsd3k0YnB6YWZiaThzMDdkbTZwNmJjNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9xRLvfhAGVeiys/giphy.gif");  */
     --overlay: rgba(0, 0, 0, 0.5);
 }
 .bg-video {
@@ -334,8 +332,9 @@ select option:nth-child(odd){
     </script>
 </head>
 <body>
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="https://kavitha351.github.io/Transcript/bgdark.mp4" type="video/mp4"></source>
+    <video autoplay muted loop playsinline 
+       id="bg-video"
+       class="bg-video" preload="none">
     </video>
     <div class="box list">
                 <a href="#Greetings">Greetings</a>
@@ -364,7 +363,6 @@ select option:nth-child(odd){
 				<a href="#unknown">Charges</a>
                 <a href="#authorize">Authorization</a>
 				<a href="#decline">Declined</a>
-				<a href="#decline-monthly">InvoiceDecline</a>
 				<a href="#contactseller">MFN</a>
 				<a href="#AtoZclaim">AtoZClaim</a>
 				<a href="#invoice">MonthlyInvoice</a>
@@ -427,12 +425,9 @@ select option:nth-child(odd){
     <div id="apologies">
         <h2>Apology</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize for the delay in delivering your order. I understand how important this is, and I appreciate your patience. I will check the status and find the best solution for you.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received a <select><option value="damaged">damaged</option><option value="defective">defective</option><option value="incomplete">incomplete item</option></select> product. That’s not the experience we want for our customers. Let me make this right for you.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received the wrong item. I will arrange a return and ensure you get the correct product as soon as possible.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m sorry for any confusion regarding your <select><option value="billing">billing</option><option value="refund">refund</option></select>. I understand your concern, and I’ll look into this right away to get it resolved.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I’m really sorry that you received a <select><option value="damaged">damaged</option><option value="defective">defective</option><option value="incomplete">incomplete item</option><option value="wrong">wrong</option></select> product. That’s not the experience we want for our customers. Let me make this right for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize that your cancellation request could not be processed as expected. Let me check what I can do to help resolve this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry for the trouble caused by this cancellation issue. I’ll do my best to assist you with the next steps.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize if my response did not meet your expectations. I am here to help, and I appreciate the opportunity to assist you better.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that you have not received the refund till now. Let me check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry to hear that you received an empty package. May I know was the packaging damaged?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I am sorry that our product does meet your expectation. Let me check how can I help you at this moment.</p>
@@ -578,7 +573,7 @@ select option:nth-child(odd){
     </div>
     <div id="nonreturnable">
         <h2>Non-returnable-Item</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that the item is non retunable item ,therefore you are not getting the option to create the return label.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that the item is non returnable item ,therefore you are not getting the option to create the return label.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case, as a one-time exception I will help you with the full refund and you do not need to return the item to us.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can check whether an item is returnable or non-returnable on Amazon's website by visiting the product's page and looking for the "Return policy" section. Typically, this information is displayed near the price and shipping details. Additionally, you can often find details about the return policy in the product description or in the "Shipping & returns" section on the product page. If you're unsure, you can also contact us for clarification. I hope you understand.</p>
     </div>
@@ -745,7 +740,6 @@ select option:nth-child(odd){
     </div>
     <div id="decline">
         <h2>Declined</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>We have no details about why the charge was declined. For further information, please contact your bank.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Our system performs routine checks of orders in certain cases. As part of this review, your chosen payment method rejected and you were asked to change your payment method to a credit card. Unfortunately. I am unable to reverse this decision manually.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately, I am unable to reverse this decision manually. It all depends on the system. Normally, everything goes smoothly again when you place some orders with gift cards. We therefore ask you to change the payment method for your next order to gift card or credit card.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Afteryou change the payment method for your next order to gift card. you will be able to pay by direct debit again. Because, we have a temporary restriction on processing direct debit as a payment method due to system errors, and this error happens to many customers and is known to us.</p>
@@ -756,12 +750,6 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand please try any another payment method or once delete the account details and add again.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The reasons for refusal can be quite different. Sometime there are errors in the transmission of data or the card has already expired.A credit card may have been selected as a payment method that no longer exists or is invalid and has not yet been removed from your customer account.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>For data protection reasons the issuing bank/credit card institution cannot inform us of the reason tor the refusal. I therefore ask you to contact your issuing bank to find out the reasons for the refusal.</p>
-    </div>
-    <div id="decline-monthly">
-        <h2>MonthlyInvoice Declined</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Our system performs a standard routine check with each order. If it is found that a purchase by invoice is not possible, the payment method Monthly Invoice will not be offered during the order process.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This automatic decision can be caused by various reasons and cannot be manually influenced. I ask for your understanding. Nor can our Customer Service see the exact reason due to privacy reasons.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Instead of Monthly Invoice, we are happy to offer alternative payment methods such as direct debit, credit card or Amazon.de gift cards (not for Prime memberships).</p>
     </div>
     <div id="contactseller">
         <h2>MFN</h2>
@@ -810,30 +798,19 @@ select option:nth-child(odd){
     </div>
     <div id="shorts">
         <h2>Shortcuts</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>May I know issue with the item?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please confirm the date when did you return the item?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Could you please help me with the last four digits of your credit card and its expiry date?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>May I know the reason for contacting us so late?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>May I know reason for returning the item?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Is this the item you are referring to ?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Will that be okay for you?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>May I know what would you prefer?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I see that there are multiple items in this order number</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please help me with the item name?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please help me with the order number?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I hope I was able to answer all your questions.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand your concern.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I request you to please wait.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Could you please confirm the payment method?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I hope you agree with the solution.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I hope you understand.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I hope you agree with this solution.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Let me check this for you.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please allow me a minute</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please send me the images of damaged item on this link?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Can you please send me the return receipt on this link?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I don't mean to rush you but have you send us the return receipt on this link?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I don't mean to rush you but have you send the images of the item on this link?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I wish you did not have to go through that.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This is the maximum time I request you to wait.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you.</p>
     </div>
@@ -896,21 +873,43 @@ Reason for transfer:for better assistance and <textarea class="textarea"></texta
     </div>
     <script>
         var toggle = document.getElementById('togglemode');
-        var activeRoot = document.querySelector(':root');
-        toggle.addEventListener('click',function(){
-            activeRoot.classList.toggle('active-root');
-            toggle.classList.toggle('active');
-            var icon = toggle.querySelector('i');
-            if (toggle.classList.contains('active')) {
-                // Change icon to bx-toggle-right
-                icon.classList.remove('bx-toggle-left');
-                icon.classList.add('bx-toggle-right');
-            } else {
-                // Change icon to bx-toggle-left
-                icon.classList.remove('bx-toggle-right');
-                icon.classList.add('bx-toggle-left');
-            }
-        })
+var activeRoot = document.querySelector(':root');
+
+const video = document.getElementById('bg-video');
+
+// INITIAL VIDEO (Dark Mode)
+video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
+
+toggle.addEventListener('click', function(){
+
+    activeRoot.classList.toggle('active-root');
+    toggle.classList.toggle('active');
+
+    var icon = toggle.querySelector('i');
+
+    // LIGHT MODE
+    if (toggle.classList.contains('active')) {
+
+        icon.classList.remove('bx-toggle-left');
+        icon.classList.add('bx-toggle-right');
+
+        // CHANGE TO LIGHT VIDEO
+        video.src = "https://kavitha351.github.io/Transcript/bglight.mp4";
+
+    } 
+    
+    // DARK MODE
+    else {
+
+        icon.classList.remove('bx-toggle-right');
+        icon.classList.add('bx-toggle-left');
+
+        // CHANGE TO DARK VIDEO
+        video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
+    }
+
+    video.play();
+});
 
     //it Javascript for policy
     const itPolicy = document.getElementById('itPolicy');
