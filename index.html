@@ -27,14 +27,14 @@
     --inputs:#e7f921;
     --overlay: rgba(0, 0, 0, 0.5);
 }
-.bg-video {
+/* .bg-video {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -2;
-}
+} */
 *{
     margin: 0;
     padding: 0;
@@ -57,8 +57,8 @@ body{
     overflow-x: hidden;
     border-radius: 20px;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
     box-shadow: 
         0 0 40px rgba(0,255,200,0.1),
         inset 0 0 20px rgba(255,255,255,0.05);
@@ -249,6 +249,14 @@ select option:nth-child(odd){
 #togglemode{
     cursor: pointer;
 }
+#vanta-bg{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
 </style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml">
 <!-- <script src="https://cdn.tailwindcss.com"></script> -->
@@ -332,12 +340,15 @@ select option:nth-child(odd){
             window.open(url, '_blank');
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 </head>
 <body>
-    <video autoplay muted loop playsinline 
+    <!-- <video autoplay muted loop playsinline 
        id="bg-video"
        class="bg-video" preload="none">
-    </video>
+    </video> -->
+    <div id="vanta-bg"></div>
     <div class="box list">
                 <a href="#Greetings">Greetings</a>
 				<a href="#reconnect">Reconnected</a>
@@ -350,6 +361,7 @@ select option:nth-child(odd){
 				<a href="#dnr">DNR</a>
 				<a href="#replacement">Replacement</a>
 				<a href="#returnrefund">ReturnOnRefund</a>
+                <a href="#pickup">Pick up</a>
 				<a href="#refund">Refund</a>
                 <a href="#nonreturnable">Non-returnable-item</a>
 				<a href="#retrocharge">RetroCharge</a>
@@ -373,7 +385,7 @@ select option:nth-child(odd){
 				<a href="#pricematch">Price Match</a>
 				<a href="#promo">Promo</a>
                 <a href="#annotation">Annotation</a>
-                <a href="#wrapup">WrapUp</a>
+                <a href="#ticket">Ticket</a>
                 <div id="itPolicy">IT</div>
     </div>
     <div id="itGlass">
@@ -381,6 +393,7 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://eu.inspire.cs.amazon.dev/real-time-hmd-details/')">Inspire</button>
            <button class="it-btn" onclick="ItFunction('https://www.ecosia.org/chat?q=ecosia')">ClickEcosiaAI</button>
            <button class="it-btn" onclick="ItFunction('https://www.bing.com/')">Bing</button>
+           <button class="it-btn" onclick="ItFunction('https://skillsprofile.skillbuilder.aws/user/kavitha/certification-badges')">Credly Badges</button>
            <button class="it-btn" onclick="ItFunction('https://onlineradios.in/new-hits-of-bollywood/')">Radio</button>
            <button class="it-btn" onclick="ItFunction('https://ait.amazon.dev/')">Translator</button>
            <button class="it-btn" onclick="ItFunction('https://atoz.amazon.work/shifts/schedule/')">FindShift</button>
@@ -388,10 +401,12 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://csanalytics.amazon.com/DashboardUrl?dashboardId=7f34ba64-2c42-46b2-8442-4be34c79ccb2')">ScoreCard</button>
            <button class="it-btn" onclick="ItFunction('https://music.amazon.in/')">Podcast</button>
            <button class="it-btn" onclick="ItFunction('https://drive.corp.amazon.com')">Drive</button>
-           <button class="it-btn" onclick="ItFunction('https://www.britannica.com/games/loop')">Loop</button>
-           <button class="it-btn" onclick="ItFunction('https://www.merriam-webster.com/games/pilfer')">Pilfer</button>
-           <button class="it-btn" onclick="ItFunction('https://www.britannica.com/games/victordle/')">Victordle</button>
-           <iframe src='https://www.google.co.in/logos/fnbx/solitaire/standalone.html' width="470" height="350" style="margin-top: 7px;"></iframe>
+           <button class="it-btn" onclick="ItFunction('https://www.britannica.com/quiz/browse')">Britannica</button>
+           <button class="it-btn" onclick="ItFunction('https://cs-connect-prod-eu.my.connect.aws/home')">AWS Notification</button>
+           <button class="it-btn" onclick="ItFunction('https://mercury.amazon.com/apps/oblt/outboundLookup/packageLookup?region=eu')">OBLT</button>
+           <button class="it-btn" onclick="ItFunction('https://t.corp.amazon.com/create/templates/82960e80-b531-4a7f-9828-87f9fddc4879')">TT-Service</button>
+           <button class="it-btn" onclick="ItFunction('https://t.corp.amazon.com/create/templates/04d3b41a-5d92-40dc-a806-d02ebeea243d')">TT-WMS-Delay</button>
+           <!-- <iframe src='https://www.google.co.in/logos/fnbx/solitaire/standalone.html' width="470" height="350" style="margin-top: 7px;"></iframe> -->
         </div>
     </div>
     <div class="box content">
@@ -467,13 +482,9 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how important this is, and I’ll make sure you get the best possible resolution.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I truly appreciate your patience, and I’ll ensure this is taken care of right away.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand your concern. I’m closely monitoring this, and I will ensure your order reaches you as soon as possible.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Don't worry! I’ll make sure we find the best possible solution to get your order to you at the earliest.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how important this refund is to you. Please be assured that I’m working on it, and you’ll receive your refund within the promised timeframe.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>No need to worry! Your refund is in progress, and I’ll keep you updated every step of the way.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand how frustrating this can be, and I’ll make sure your replacement is processed smoothly.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You don’t have to worry about a thing! I’ll ensure that your replacement is on its way as soon as possible.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please rest assured that I’m looking into this for you. I’ll make sure you receive the correct update as soon as possible.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I understand that technical issues can be frustrating, but I’m here to help, and I’ll do my best to get this resolved for you quickly</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I completely understand how you feel, and I truly appreciate your patience. I’ll make sure this is taken care of immediately.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your concern is my priority, and I’ll do everything I can to ensure a smooth resolution.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I'm sorry for the problems you've encountered. We have forwarded your feedback to our technical department and they are already working to resolve this issue.</p>
@@ -490,7 +501,6 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your welcome.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Is there anything else that I may assist you with today?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I will be glad if I could be of any more help for you today. Do you have another further questions for me?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your welcome. Thank you for this pleasant chat. Goodbye.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately, we cannot send you the minutes of our conversation by email. However, you can view the history at any time by scrolling up.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>By scrolling up in this chat you can see the complete conversation. This works for both, within the Amazon App and on your desktop computer.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Your Welcome. Thank you for contacting Amazon. Wishing you a nice day.</p>
@@ -531,7 +541,7 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Since the item was shipped from the seller's warehouse in this case, unfortunately we can't offer a replacement delivery.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I would like to help you with the replacement, I see that the item you ordered is sold by third party sellers and shipped by Amazon. We do not have control over seller's inventory. So replacement is not an option.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Unfortunately system does not allow me to create the replacement for this item as the item was purchased more than 30 days ago. I hope you understand.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I sincerely apologize but since the item is sold by a Seller, I'm unable to resend the same item for you.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have reviewed the details or your order and see that the item is sold by one of our sellers and we only take care of packaging and shipping and don't own their inventory. Hence, we are unable to process a replacement or discount.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can ofcourse return the item for the full refund and place a new order.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have created a free of charge replacement order [<textarea class="textarea" placeholder="Ordernumber"></textarea>] to the same shipping address.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In the replacement confirmation email, just ask you to ignore the label, no further action is required from your side.</p>
@@ -546,17 +556,23 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>To make things right you can return the item for the full refund.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>This label is not prepaid, it's international label. We don't have contracts with international carriers. Because of that, we refund return shipping cost in full once the item is received and refunded. Just save the receipt and when you receive refund for the item, send us the return receipt to [<textarea class="textarea"></textarea>] in pdf or jpg format and we will manually refund the shipping costs.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I will help you with the prepaid return label.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>There are two ways to return the item: 1)The item can be picked up from your address; 2) You can return the item to the <select><option value="post office">post office</option><option value="post office or UPS">post office or UPS</option></select>. Which option do you prefer?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option></select>.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can return the item with DHL or Hermes.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can either arrange a pick up by Hermes or I can help you with the DHL with QR code. Which option do you prefer?</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I can help you with the <select><option value="DHL">DHL</option><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option></select>.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Would you prefer QR code or Printable label?</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Would you prefer refund to the original payment method or to the Amazon account as a gift card?</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. I have created the return as requested with <select><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="DHL">DHL</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option><option value="Correos">Correos</option><option value="Celeritas">Celeritas</option></select>. You will receive the return label via email to the email address registered in your customer account. We will refund you the amount, as soon as the item arrives at our returns center.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have successfully arranged a pick up at the given address. The item will be picked up on [<input type="date">]. No need to print label. Carrier will bring the return label with them. And you will also receive an email from the carrier with the pickup date.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. The item will be picked up on [<input type="date">] and you will receive an email regarding the pick up shortly.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. I have created the return as requested with <select><option value="DHL">DHL</option><option value="Post Office">Post Office</option><option value="Punto Poste">Punto Poste</option><option value="Austria Post">Austria Post</option><option value="Hermes">Hermes</option><option value="international">international</option><option value="UPS">UPS</option><option value="HermesPickUp">HermesPickUp</option><option value="Correos">Correos</option><option value="Celeritas">Celeritas</option></select>. You will receive the return label via email to the email address registered in your customer account. We will refund you the amount, as soon as the item arrives at our returns center.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>No problem you can return the item in any normal package or box.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can also wrap the item in the plastic.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the original packing is no longer available then you can return the item in any other safe return.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the original packing is no longer available, you can pack the item or wrap it in paper, plastic, Styrofoam, bubble-wrap or cardboard. You can use available packaging. Just make sure that the item does not come off from the packaging.</p>
+    </div>
+    <div id="pickup">
+        <h2>Pick up</h2>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have successfully arranged a pick up at the given address. The item will be picked up on [<input type="date">]. No need to print label. Carrier will bring the return label with them. And you will also receive an email from the carrier with the pickup date.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Thank you for confirming. The item will be picked up with in 3 days and you will receive an email regarding the pick up shortly.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Here is the tracking number [<textarea class="textarea" placeholder="tracking number"></textarea>].</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have successfully created the return label and email confirmation had been sent on your registered email address. Here is the tracking number [<textarea class="textarea" placeholder="tracking number"></textarea>]. You will be notified via email regarding the pick up slots. Carrier would arrive on [<input type="date"/>] to collect the item.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You will then receive a confirmation E-mail from DHL regarding this order and a QR code, I request you to scan the QR code and keep the item ready to get it collected.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The carrier's driver will call you about 1 hour before arrival on the day of delivery. The carrier will transfer the goods you ordered to the chosen location in you home/apartment. If you like, a trusted person can also be present to accept the goods on your behalf.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Carrier will call you 1 hour before pick up, if you no longer have the original box, please ensure a proper packaging by using Styrofoam, bubble-wrap and cardboard If you still cannot arrange a packaging, you just need to disconnect it and keep it ready, carrier would arrive to collect the item without packaging. You will be receiving information to your registered email address regarding pick up details.</p>
     </div>
     <div id="nonreturnable">
         <h2>Non-returnable-Item</h2>
@@ -617,7 +633,7 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you. Please do not worry, your payment is on hold the payment will be automatically debited from your account within 48 hours once the item entered into the shipping stage. So I request you to wait may be due to some technical issues the payment may declined. If within 48 hours the payment has not debited then we will help you further.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As soon as the order is placed, amount will be authorized and freeze in the payment card.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Once the item is shipped, amount will be settled and an email will be sent regarding the shipment confirmation</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you, It looks like the order was lost in transit.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Carriers are assigned to orders by an automated system based on factors like availability, locality and other business reasons. I am afraid that we don't have ability to assign certain carriers to a specific orders.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have contacted the fulfillment center and an update regarding the shipping will be send within 72 hours.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Please do not worry. You will receive the email about the update of the delivery status.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I will make sure you will receive the delivery as soon as possible. There is not further action required from your end I hope you understand.</p>
@@ -640,6 +656,7 @@ select option:nth-child(odd){
     <div id="cancel">
         <h2>Cancel</h2>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As requested I have tried to cancel the item but as the items are in advance shipping stage I am unable to cancel the items. I hope you understand.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>As requested I have tried to cancel the item but it seems that the item has already prepared for shipping and therefore I am not able to cancel the item. I am really sorry for the inconvenience.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case you can either return the item at the time when it is delivered. Otherwise, you can refuse the shipment at the time of delivery.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You can refuse the shipment at the time of delivery.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The refusal of delivery is free of charge for you.</p>
@@ -654,7 +671,10 @@ select option:nth-child(odd){
         <p style="color: blueviolet;"><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I request you to please contact us after 48 hours. Once the tracking is updated as "delivered" I will be able to help you with the query.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You will receive the full refund once the item has been reached to the seller. Therefore, I request you to please wait for 5-7 working days. I hope you understand.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you. I see that the item is stuck in transit.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you. Your order seems to be currently stuck at our warehouse and this has resulted in the delay. I apologize for this unexpected situation.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I can either escalate this issue so that you can get the tracking details with in 72 hours or I can cancel this order right now, So that you will get the refund with in 5-7 working days. May I know what would you prefer?</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have contacted the fulfillment center and an update regarding the shipping will be send within 72 hours. Please don't worry you will receive an email about the update of the delivery status.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I will make sure you will receive the delivery as soon as possible. There is no further actions required from your end. I hope you understand.</p>
     </div>
     <div id="outofstock">
         <h2>OutOfStock</h2>
@@ -740,12 +760,12 @@ select option:nth-child(odd){
     </div>
     <div id="contactseller">
         <h2>MFN</h2>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>To contact your seller, click on "My Account" and then "My Orders". Then click "Contact Seller" on the right side of your order. Please note that it may take up to 2 business days for the seller to respond to your message.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the details for you. Since the item is coming from a third party seller, means that the inventory and choice of delivery is with the seller.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The best way to get a fast and complete resolution is to directly contact the seller and I would gladly do it on your behalf.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have checked the order and I can see it was sold and shipped by a third party seller.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In this case I will forward your concern to the seller. The seller will reply you with in 2 days.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>I have now contacted the seller. I request you to please wait for 2 days for the seller reply.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If the seller does not reply you with in 2 days we will go ahead and file the Atoz claim on this item</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Once there is a response from the seller, you can continue communicating by directly replying to the seller.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>If you do not receive a response within two business days or if the seller's response is not satisfactory, please contact us again and we will be happy to help you file an AtoZ Guarantee claim.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The Amazon A-to-Z Guarantee protects you when you purchase items sold and fulfilled by a third-party seller. Our guarantee covers both the delivery and the condition of the items.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Since you have contacted the seller they can tell you it was denied when we contact the seller since they are selling their products on our website. they will come with the resolution now.</p>
@@ -755,7 +775,6 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>First, please give the seller the opportunity to respond and provide a solution. However, if you do not receive feedback from the seller within three workdays (or three workdays have elapsed since the contact without a response), or the matter could not be resolved with the seller to your satisfaction, we would like to point you to the Amazon A-to-Z Guarantee. This provides you with security when ordering through Amazon.de (http://amazon.de/) Marketplace.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>We have to give the seller one more chance before we file a claim. We will write on your behalf. Sellers mostly answer to Amazon messages. let me write on your behalf.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Do not worry, we always have the option of raising a claim. I know it is inconvenient to wait for more days, but we have to follow the procedure to get the desired solution.</p>
-        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Right now, our system is not allowing me to raise a claim due to technical issues, I will keep a follow up of your request and raise a claim on your behalf in a couple of days. I'll also send you a confirmation Email.</p>
     </div>
     <div id="AtoZclaim">
         <h2>AtoZClaim</h2>
@@ -821,7 +840,7 @@ select option:nth-child(odd){
 <h2>Annotation</h2>
 <h3 style="color: yellow;">Request For dart: </h3>
 <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>
-#AC3Prompttool
+#HBS
 OrderNumber: <textarea class="textarea"></textarea> <br>
 Customerconcern:<textarea class="textarea"></textarea> <br>
 ActionsTaken: <textarea class="textarea"></textarea> <br>
@@ -841,10 +860,10 @@ OrderNumber: <textarea class="textarea"></textarea><br>
 Customerconcern:<textarea class="textarea"></textarea><br>
 Reason for transfer:for better assistance and <textarea class="textarea"></textarea>.</p>
     </div>
-    <div id="wrapup">
-    <h2>WrapUp</h2>
-    <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
-    <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Issue and resolution: <select><option value="item defective and created return label">item defective and created return label</option><option value="Item lost and issued refund">Item lost and issued refund</option><option value="item damaged and issued return label">item damaged and created return label</option><option value="item damaged and issued refund for the item">item damaged and issued refund for the item</option><option value="item defective and issued refund">item defective and issued refund</option><option value="DNR, issued refund">DNR, issued refund</option><option value="DNR, issued replacement">DNR, issued replacement</option><option value="item returning to the seller,issued refund">item returning to the seller,issued refund</option><option value="item returned and 14 days completed, therefore issued refund">item returned, therefore issued refund</option><option value="item returned, 14 days not completed, hense requested to wait">item returned, 14 days not completed, hense requested to wait</option><option value="return notification disarmed because cx returned the item">return notification disarmed because cx returned the item</option><option value="retrocharge issue">retrocharge issue</option><option value="MFN, contacted seller">MFN, contacted seller</option><option value="MFN, Filed Atoz claim and requested to wait">MFN, Filed Atoz claim and requested to wait</option><option value="Atoz claim was filed, requested cx to wait">Atoz claim was filed, requested cx to wait</option><option value="item damaged, issued discount">item damaged, issued discount</option><option value="MFN, shipping cost query">MFN, shipping cost query</option><option value="item delay,issued 5 EUR promo">item delay,issued 5 EUR promo</option><option value="item defective, issued discount">item defective, issued discount</option><option value="received empty package, issued refund">received empty package, issued refund</option><option value="item lost, issued replacement">item lost, issued replacement</option><option value="Item or order cancel request">Item or order cancel request</option><option value="requested return label">requested return label</option><option value="non-returnable item, issued refund as an exception">non-returnable item, issued refund as an exception</option></select></p>
+    <div id="ticket">
+        <h2>Ticket</h2>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Order > Troubleshooting EU: Issue with an Order > Germany</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Order > Cancel Order Request (No Pending Shipment) > Retail Order EU (UK/DE/FR/IT/ES)</p>
     </div>
     </div>
     <div class="box aaps">
@@ -861,11 +880,12 @@ Reason for transfer:for better assistance and <textarea class="textarea"></texta
     <script>
         var toggle = document.getElementById('togglemode');
 var activeRoot = document.querySelector(':root');
+let vantaEffect;
 
-const video = document.getElementById('bg-video');
+// const video = document.getElementById('bg-video');
 
 // INITIAL VIDEO (Dark Mode)
-video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
+// video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
 
 toggle.addEventListener('click', function(){
 
@@ -880,8 +900,11 @@ toggle.addEventListener('click', function(){
         icon.classList.remove('bx-toggle-left');
         icon.classList.add('bx-toggle-right');
 
+        // vanta effect
+        createLightVanta();
+
         // CHANGE TO LIGHT VIDEO
-        video.src = "https://kavitha351.github.io/Transcript/bglight.mp4";
+        // video.src = "https://kavitha351.github.io/Transcript/bglight.mp4";
 
     } 
     
@@ -891,11 +914,14 @@ toggle.addEventListener('click', function(){
         icon.classList.remove('bx-toggle-right');
         icon.classList.add('bx-toggle-left');
 
+        // vanta effect
+        createDarkVanta();
+
         // CHANGE TO DARK VIDEO
-        video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
+        // video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
     }
 
-    video.play();
+    // video.play();
 });
 
     //it Javascript for policy
@@ -931,6 +957,60 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 updateTime();
+</script>
+<script>
+VANTA.NET({
+    el: "#vanta-bg",
+
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+
+    color: 0x00ffd5,
+    backgroundColor: 0x000000,
+
+    points: 10,
+    maxDistance: 20,
+    spacing: 18
+});
+// dark mode
+function createDarkVanta(){
+
+    if(vantaEffect){
+        vantaEffect.destroy();
+    }
+
+    vantaEffect = VANTA.NET({
+        el:"#vanta-bg",
+
+        color:0x00ffd5,
+        backgroundColor:0x000000,
+
+        points:8,
+        maxDistance:18,
+        spacing:20
+    });
+
+}
+// light mode
+function createLightVanta(){
+
+    if(vantaEffect){
+        vantaEffect.destroy();
+    }
+
+    vantaEffect = VANTA.NET({
+        el:"#vanta-bg",
+
+        color:0x3BB4FF,
+        backgroundColor:0xF5F8FC,
+
+        points:8,
+        maxDistance:18,
+        spacing:20
+    });
+
+}
 </script>
 </body>
 </html>
