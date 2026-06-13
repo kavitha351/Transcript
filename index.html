@@ -10,12 +10,13 @@
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
 :root.active-root{
     --text-color:black;
-    --btn-border: rgba(0, 157, 175, 0.966);
+    --btn-border: #333333;
     --btn-fill:  pink; 
-    --h2-color: rgb(157, 222, 5);
-    --Glass:rgba(40, 39, 39, 0.434);
-    --side-plaines: #111;
+    --h2-color: rgb(17, 0, 79);
+    --Glass:#1d83c281;
     --inputs:rgb(0, 0, 0);
+    --box-shadow1:rgba(0, 0, 0, 0.146);
+    --box-shadow2: rgba(255, 255, 255, 0.189);
 }
 :root {
     --text-color: #EBEBF0;
@@ -23,18 +24,11 @@
     --btn-fill: #00ff9d ;
     --h2-color: #3BB4FF;
     --Glass:rgba(62, 40, 59, 0.5);
-    --side-plaines: rgb(62, 40, 59);
     --inputs:#e7f921;
-    --overlay: rgba(0, 0, 0, 0.5);
+    /* --overlay: rgba(0, 0, 0, 0.5); */
+    --box-shadow1: rgba(0,255,200,0.1);
+    --box-shadow2: rgba(255,255,255,0.05);
 }
-/* .bg-video {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-} */
 *{
     margin: 0;
     padding: 0;
@@ -60,8 +54,8 @@ body{
     background-color: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(8px);
     box-shadow: 
-        0 0 40px rgba(0,255,200,0.1),
-        inset 0 0 20px rgba(255,255,255,0.05);
+        0 0 40px var(--box-shadow1),
+        inset 0 0 20px var(--box-shadow2);
 }
 .list{
     width: 10em;
@@ -86,7 +80,7 @@ body{
     right: -500px;
     border-left: 1px solid var(--btn-border);
     flex-direction: column;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     z-index: 99;
     border-radius: 50px 0px 0px 50px;
     box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
@@ -99,7 +93,6 @@ body{
     align-items:start;
     flex-wrap: wrap;
     margin-top: 45px;
-    /* background-color: pink; */
 }
 #itGlass .it-btn {
     position: relative;
@@ -179,7 +172,8 @@ h2{
     color: var(--h2-color);
     position: sticky;
     top: 0;
-    background: rgba(0, 0, 0, 0.468);
+    /* background: rgba(0, 0, 0, 0.468); */
+    background: var(--Glass);
     height: 40px;
     border: 1px solid var(--btn-border);
     border-radius: 20px;
@@ -344,10 +338,6 @@ select option:nth-child(odd){
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 </head>
 <body>
-    <!-- <video autoplay muted loop playsinline 
-       id="bg-video"
-       class="bg-video" preload="none">
-    </video> -->
     <div id="vanta-bg"></div>
     <div class="box list">
                 <a href="#Greetings">Greetings</a>
@@ -399,6 +389,18 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://atoz.amazon.work/shifts/schedule/')">FindShift</button>
            <button class="it-btn" onclick="ItFunction('https://cscentral-eu.amazon.com/taw/agent-performance?ie=UTF8')">TimeTracker</button>
            <button class="it-btn" onclick="ItFunction('https://csanalytics.amazon.com/DashboardUrl?dashboardId=7f34ba64-2c42-46b2-8442-4be34c79ccb2')">ScoreCard</button>
+           <button class="it-btn"
+            onclick="ItFunction('https://zaz.console.ordering.amazon.dev/grass')">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="18px"
+                viewBox="0 0 30 18" version="1.1">
+                <g id="surface1">
+                    <path
+                        style="fill-rule:nonzero;fill:rgb(0%,50.980395%,0%);fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;"
+                        d="M 76.742578 249.511719 L 179.422656 249.511719 C 180.687109 123.643663 194.758203 101.128472 249.097266 94.618056 C 208.180859 79.37283 175.85625 92.610677 156.921875 147.569444 C 149.108203 21.538628 96.552344 6.022135 47.141406 0.488281 C 75.121484 8.246528 125.310547 33.962674 115.810938 146.538628 C 98.659766 111.762153 74.505469 82.085503 0.0972656 95.703125 C 60.077734 102.213542 95.741797 129.774306 76.742578 249.511719 Z M 76.742578 249.511719 "
+                        transform="matrix(0.120482,0,0,0.072,0,0)" />
+                </g>
+                </svg>
+            </button>
            <button class="it-btn" onclick="ItFunction('https://music.amazon.in/')">Podcast</button>
            <button class="it-btn" onclick="ItFunction('https://drive.corp.amazon.com')">Drive</button>
            <button class="it-btn" onclick="ItFunction('https://www.britannica.com/quiz/browse')">Britannica</button>
@@ -882,10 +884,6 @@ Reason for transfer:for better assistance and <textarea class="textarea"></texta
 var activeRoot = document.querySelector(':root');
 let vantaEffect;
 
-// const video = document.getElementById('bg-video');
-
-// INITIAL VIDEO (Dark Mode)
-// video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
 
 toggle.addEventListener('click', function(){
 
@@ -903,9 +901,6 @@ toggle.addEventListener('click', function(){
         // vanta effect
         createLightVanta();
 
-        // CHANGE TO LIGHT VIDEO
-        // video.src = "https://kavitha351.github.io/Transcript/bglight.mp4";
-
     } 
     
     // DARK MODE
@@ -917,11 +912,8 @@ toggle.addEventListener('click', function(){
         // vanta effect
         createDarkVanta();
 
-        // CHANGE TO DARK VIDEO
-        // video.src = "https://kavitha351.github.io/Transcript/bgdark.mp4";
     }
 
-    // video.play();
 });
 
     //it Javascript for policy
