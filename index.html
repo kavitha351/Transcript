@@ -9,11 +9,11 @@
        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Itim&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
 :root.active-root{
-    --text-color:black;
-    --btn-border: #333333;
-    --btn-fill:  pink; 
-    --h2-color: rgb(17, 0, 79);
-    --Glass:#1d83c281;
+    --text-color:#1F2937;
+    --btn-border: rgba(0,0,0,0.08);
+    --btn-fill:  #2563EB; 
+    --h2-color: #2F80ED;
+    --Glass: rgba(236, 253, 245, 0.7);;
     --inputs:rgb(0, 0, 0);
     --box-shadow1:rgba(0, 0, 0, 0.146);
     --box-shadow2: rgba(255, 255, 255, 0.189);
@@ -115,6 +115,33 @@ body{
     background: rgba(237, 11, 87, 0.806);
     color: black;
 } 
+.glass-marquee{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    padding: 10px 0;
+    color: var(--text-color);
+    position: absolute;
+    bottom: 0;
+}
+
+.marquee-content{
+    display: inline-block;
+    padding-left: 100%;
+
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee{
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-100%);
+    }
+}
 .content{
     flex: 1;
     color: var(--text-color);
@@ -123,7 +150,7 @@ body{
 }
 .aaps{
     width: 4em;
-    color: var(--btn-border);
+    color: transparent;
     -webkit-text-stroke: 1px var(--text-color);
     display: flex;
     justify-content: space-evenly;
@@ -172,13 +199,12 @@ h2{
     color: var(--h2-color);
     position: sticky;
     top: 0;
-    /* background: rgba(0, 0, 0, 0.468); */
     background: var(--Glass);
     height: 40px;
     border: 1px solid var(--btn-border);
     border-radius: 20px;
     font-size: 20px;
-    text-shadow: 0 0 10px rgba(76,201,255,0.4);
+    text-shadow: 0 0 8px rgba(59,130,246,0.25);
 }
 p{
 	font-size: 15px;
@@ -253,11 +279,10 @@ select option:nth-child(odd){
 }
 </style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Ctext y='.9em' font-size='.9' font-weight='bold'%3E👻%3C/text%3E%3C/svg%3E" type="image/svg+xml">
-<!-- <script src="https://cdn.tailwindcss.com"></script> -->
  <script data-goatcounter="https://kiwifruit.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
     <script>
-        let count = 0;
+        // let count = 0;
         // to copy the lines
         function copied(button) {
 					var paragraph = button.parentNode;
@@ -310,8 +335,8 @@ select option:nth-child(odd){
 					}
                     
                     //change document title accordingly
-                    count++;
-                    document.title = `kukavitx-[${count}]`;
+                    // count++;
+                    // document.title = `kukavitx-[${count}]`;
 		}
         //random colors 
         document.addEventListener('DOMContentLoaded', function () {
@@ -404,12 +429,17 @@ select option:nth-child(odd){
            <button class="it-btn" onclick="ItFunction('https://music.amazon.in/')">Podcast</button>
            <button class="it-btn" onclick="ItFunction('https://drive.corp.amazon.com')">Drive</button>
            <button class="it-btn" onclick="ItFunction('https://www.britannica.com/quiz/browse')">Britannica</button>
-           <button class="it-btn" onclick="ItFunction('https://cs-connect-prod-eu.my.connect.aws/home')">AWS Notification</button>
+           <button class="it-btn" onclick="ItFunction('https://drive-render.corp.amazon.com/view/kukavitx@/ShootGma.html')">❤️</button>
+           <button class="it-btn" onclick="ItFunction('https://drive-render.corp.amazon.com/view/kukavitx@/butterfly.html')">🦋</button>
+           <button class="it-btn" onclick="ItFunction('https://cs-connect-prod-eu.my.connect.aws/home')">AC3 Notification</button>
            <button class="it-btn" onclick="ItFunction('https://mercury.amazon.com/apps/oblt/outboundLookup/packageLookup?region=eu')">OBLT</button>
            <button class="it-btn" onclick="ItFunction('https://t.corp.amazon.com/create/templates/82960e80-b531-4a7f-9828-87f9fddc4879')">TT-Service</button>
            <button class="it-btn" onclick="ItFunction('https://t.corp.amazon.com/create/templates/04d3b41a-5d92-40dc-a806-d02ebeea243d')">TT-WMS-Delay</button>
-           <!-- <iframe src='https://www.google.co.in/logos/fnbx/solitaire/standalone.html' width="470" height="350" style="margin-top: 7px;"></iframe> -->
         </div>
+        <div class="glass-marquee">
+            <div class="marquee-content" id="ticker"></div>
+        </div>
+</div>
     </div>
     <div class="box content">
         <div id="Greetings">
@@ -575,6 +605,7 @@ select option:nth-child(odd){
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>You will then receive a confirmation E-mail from DHL regarding this order and a QR code, I request you to scan the QR code and keep the item ready to get it collected.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>The carrier's driver will call you about 1 hour before arrival on the day of delivery. The carrier will transfer the goods you ordered to the chosen location in you home/apartment. If you like, a trusted person can also be present to accept the goods on your behalf.</p>
         <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>Carrier will call you 1 hour before pick up, if you no longer have the original box, please ensure a proper packaging by using Styrofoam, bubble-wrap and cardboard If you still cannot arrange a packaging, you just need to disconnect it and keep it ready, carrier would arrive to collect the item without packaging. You will be receiving information to your registered email address regarding pick up details.</p>
+        <p><button onclick="copied(this)"><i class='bx bx-copy'></i></button>In order to arrange a pick up I need your email address and phone number. Can you please help me with your email address and phone number?</p>
     </div>
     <div id="nonreturnable">
         <h2>Non-returnable-Item</h2>
@@ -994,8 +1025,8 @@ function createLightVanta(){
     vantaEffect = VANTA.NET({
         el:"#vanta-bg",
 
-        color:0x3BB4FF,
-        backgroundColor:0xF5F8FC,
+        color:0x2F80ED,
+        backgroundColor:0xF7F9FC,
 
         points:8,
         maxDistance:18,
@@ -1004,5 +1035,6 @@ function createLightVanta(){
 
 }
 </script>
+<script src="quotes.js"></script>
 </body>
 </html>
